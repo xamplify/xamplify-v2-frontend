@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -26,18 +27,35 @@ jobs:
 
       - run: npm ci
 
-      # For custom domain or root deployment, use base-href "/"
-      - run: npm run build -- --configuration production --base-href "/"
+      # Choose base href:
+      # - For project Pages (most repos): "/<repo-name>/"
+      # - For custom domain or username.github.io: "/"
+      - name: Compute BASE_HREF for GitHub Pages
+        run: echo "BASE_HREF=/${{ github.event.repository.name }}/" >> $GITHUB_ENV
 
-      # Always use dist/xamplify-v2-frontend as the output directory
-      - name: List build output
-        run: ls -lR ${{ github.workspace }}/dist
+      - name: Build Angular app
+        run: npm run build -- --configuration production --base-href "$BASE_HREF"
+
+      # Read the outputPath from angular.json so we never hardcode it
+      - name: Resolve Angular dist path
+        id: dist
+        run: |
+          echo "DIST_DIR=$(node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('angular.json','utf8'));const proj=Object.keys(a.projects)[0];process.stdout.write(a.projects[proj].architect.build.options.outputPath);")" >> $GITHUB_ENV
+          echo "Resolved dist: $DIST_DIR"
+          ls -lR "$DIST_DIR"
+
+      # Single Page App fallback so GitHub Pages serves index for deep links
       - name: Copy SPA fallback (404.html)
-        run: cp dist/xamplify-v2-frontend/index.html dist/xamplify-v2-frontend/404.html
+        run: cp "$DIST_DIR/index.html" "$DIST_DIR/404.html"
 
-      - uses: actions/upload-pages-artifact@v3
+      # Recommended by GitHub for Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/xamplify-v2-frontend
+          path: ${{ env.DIST_DIR }}
 
   deploy:
     needs: build
