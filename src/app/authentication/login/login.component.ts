@@ -52,8 +52,8 @@ constructor(
 }
 ngOnInit(): void {
   this.loginForm = this.formBuilder.group({
-    username: ['spruko@admin.com', [Validators.required, Validators.email]],
-    password: ['sprukoadmin', Validators.required],
+    username: ['xamplify@admin.com', [Validators.required, Validators.email]],
+    password: ['Xamplify@07', Validators.required],
   });
 
   this.firestoreModule = this.firebaseService.getFirestore();
@@ -67,8 +67,8 @@ ngOnDestroy(): void {
 
 
 // firebase
-email = 'spruko@admin.com';
-password = 'sprukoadmin';
+email = 'xamplify@admin.com';
+password = 'Xamplify@07';
 errorMessage = ''; // validation _error handle
 _error: { name: string; message: string } = { name: '', message: '' }; // for firbase _error handle
 
@@ -127,8 +127,8 @@ get form() {
 
 Submit() {
   if (
-    this.loginForm.controls['username'].value === 'spruko@admin.com' &&
-    this.loginForm.controls['password'].value === 'sprukoadmin'
+    this.loginForm.controls['username'].value === 'xamplify@admin.com' &&
+    this.loginForm.controls['password'].value === 'Xamplify@07'
   ) {
   // mark a local session so auth guard passes for demo login
   this.authservice.setLocalSession('demo');
