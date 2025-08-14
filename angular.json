@@ -1,0 +1,147 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "xamplify-v2-frontend": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": { "skipTests": true },
+        "@schematics/angular:standalone": { "skipTests": true },
+        "@schematics/angular:directive": { "skipTests": true },
+        "@schematics/angular:guard": { "skipTests": true },
+        "@schematics/angular:interceptor": { "skipTests": true },
+        "@schematics/angular:resolver": { "skipTests": true },
+        "@schematics/angular:service": { "skipTests": true }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",  
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "allowedCommonJsDependencies": [
+              "leaflet","apexcharts","sweetalert","sweetalert2","inputmask","filepond","moment","can-use-dom","dropzone","google-libphonenumber","cleave.js"
+              ],
+            "outputPath": "preview",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js","@angular/localize/init"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "src/styles.scss",
+              "./node_modules/leaflet/dist/leaflet.css",
+              "./node_modules/swiper/swiper-bundle.min.css", 
+              "./node_modules/filepond/dist/filepond.min.css",
+              "./node_modules/lightgallery/css/lightgallery.css",
+              "./node_modules/ngx-toastr/toastr.css",
+              "./node_modules/sweetalert2/dist/sweetalert2.css",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+            ],
+            "scripts": ["./node_modules/swiper/swiper-bundle.min.js"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                }
+              },
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5.5MB",
+                  "maximumError": "6MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "5MB",
+                  "maximumError": "5MB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "xamplify-v2-frontend:build:production"
+            },
+            "development": {
+              "buildTarget": "xamplify-v2-frontend:build:development"  
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+  }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "type": "component"
+    },
+    "@schematics/angular:directive": {
+      "type": "directive"
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    },
+    "@schematics/angular:guard": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:interceptor": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:module": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:pipe": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:resolver": {
+      "typeSeparator": "."
+    }
+  }
+}

@@ -1,0 +1,131 @@
+/* You can add global styles to this file, and also import other style files */
+// @import url('../public/assets/scss/bootstrap.scss');
+
+// Sass packages must be loaded before any other CSS rules
+@use "ngx-owl-carousel-o/lib/styles/scss/owl.carousel" as *;
+@use "ngx-owl-carousel-o/lib/styles/scss/owl.theme.default" as *;
+@use "swiper/scss" as *;
+@use "swiper/scss/navigation" as *;
+@use "swiper/scss/pagination" as *;
+
+/* Moved vendor theme CSS (styles.css, icons.css) to index.html <link> tags
+  to avoid CSS optimizer warnings while building. */
+
+
+//flatepicker
+@import url("flatpickr/dist/flatpickr.css");
+
+@import url("@ng-select/ng-select/themes/default.theme.css");
+
+//ng2-nouislider
+@import url("nouislider/dist/nouislider.css");
+
+@import url("@angular/cdk/overlay-prebuilt.css");
+
+// angular-calendar styles moved to angular.json styles array
+
+/* moved ngx-toastr CSS to angular.json styles to avoid Sass @import deprecation */
+
+/* ngx-easy-table style moved to angular.json styles array */
+
+@import url('overlayscrollbars/overlayscrollbars.css');
+
+// font awesome
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+// angular material
+/* Angular Material theme moved to angular.json styles */
+
+/* duplicate import removed: 'overlayscrollbars/overlayscrollbars.css' already imported above */
+ 
+@import url('dropzone/dist/min/dropzone.min.css');
+
+@import url('shepherd.js/dist/css/shepherd.css');
+ 
+/* intl-tel-input phone input styles */
+@import url('intl-tel-input/build/css/intlTelInput.css');
+
+
+.swiper-view-details {
+    height: 400px; /* Adjust thumbnail swiper height */
+  }
+  
+  .swiper-preview-details img {
+    width: 100%; /* Ensure images are responsive */
+    // height: auto;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #007bff; /* Customize the navigation button colors */
+  }
+
+  .swiper-horizontal {
+  height: 400px; /* Adjust based on the size of your cards */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+spk-flatpickr {
+  padding: 0 !important;
+}
+.mdc-icon-button.mat-mdc-icon-button.mat-unthemed.mat-mdc-button-base{
+  color: var(--primary-color);
+}
+.mat-tree-node, .mat-nested-tree-node{
+  color: var(--default-text-color) !important;
+}
+.mat-mdc-icon-button .mat-mdc-button-touch-target {
+  height: 30px !important;
+  width: 30px !important;
+  background: var(--primary-01);
+  border-radius: 3px;
+}
+.mat-tree-node{
+  min-height: 10 !important;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+  background-color: var(--light) !important;
+}
+
+
+.validation-group-input{
+  position: relative;
+  .invalid-feedback{
+  position: absolute;
+  inset-inline-start: 2px;
+  inset-block-start: 38px;
+  }
+}
+
+[data-menu-styles="light"][data-nav-layout="horizontal"][data-nav-style="icon-click"]{
+  &[data-bg-img="bgimg1"],
+  &[data-bg-img="bgimg2"],
+  &[data-bg-img="bgimg3"],
+  &[data-bg-img="bgimg4"],
+  &[data-bg-img="bgimg5"]{
+   .side-menu__label1 a {
+  color: #52627a;
+  font-weight: 500;
+  opacity: 0.9;
+}
+  }
+}
+
+[data-menu-styles="light"][data-nav-layout="horizontal"][data-nav-style="icon-hover"]{
+  &[data-bg-img="bgimg1"],
+  &[data-bg-img="bgimg2"],
+  &[data-bg-img="bgimg3"],
+  &[data-bg-img="bgimg4"],
+  &[data-bg-img="bgimg5"]{
+   .side-menu__label1 a {
+  color: #52627a;
+  font-weight: 500;
+  opacity: 0.9;
+}
+  }
+}
