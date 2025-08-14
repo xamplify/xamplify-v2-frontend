@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
@@ -19,67 +19,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-
+          cache: 'npm'
       - run: npm ci
-
-      # For repo pages: "/<repo-name>/"
-      # For custom domain or username.github.io: "/"
-      - name: Compute BASE_HREF for GitHub Pages
-        run: echo "BASE_HREF=/${{ github.event.repository.name }}/" >> $GITHUB_ENV
-
-      - name: Build Angular app
-        run: npm run build -- --configuration production --base-href "$BASE_HREF"
-
-      # Robust resolver that reads angular.json (no brittle quoting)
-      - name: Resolve Angular dist path (robust)
-        id: dist
-        shell: bash
+      - run: npm run build -- --configuration production --base-href "/xamplify-v2-frontend/"
+      - name: Find build output
+        id: builddir
         run: |
-          set -euo pipefail
-          DIST_DIR=$(node - <<'NODE'
-          const fs = require('fs');
-          const a = JSON.parse(fs.readFileSync('angular.json','utf8'));
-          const proj = a.defaultProject || Object.keys(a.projects || {})[0];
-          const p = (a.projects || {})[proj] || {};
-          const build = (p.architect && p.architect.build) || (p.targets && p.targets.build) || {};
-          const out = (build.options && build.options.outputPath) || '';
-          process.stdout.write(out);
-          NODE
-          )
-
-          # Fallback: if for some reason empty, find the first index.html under dist
-          if [ -z "${DIST_DIR:-}" ]; then
-            DIST_DIR="$(find dist -maxdepth 3 -type f -name index.html -print -quit | xargs -r -n1 dirname || true)"
-          fi
-
-          if [ -z "${DIST_DIR:-}" ]; then
-            echo "Could not determine build output. Did the build succeed?" >&2
-            exit 1
-          fi
-
-          echo "DIST_DIR=$DIST_DIR" >> "$GITHUB_ENV"
-          echo "Resolved dist: $DIST_DIR"
-          ls -lR "$DIST_DIR"
-
-      - name: Create SPA fallback (404.html)
-        run: cp "$DIST_DIR/index.html" "$DIST_DIR/404.html"
-
-      # Avoid Jekyll processing (optional but nice to have)
-      - name: Add .nojekyll
-        run: touch "$DIST_DIR/.nojekyll"
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+          dir=$(find dist preview -type f -name index.html | head -n 1 | xargs dirname)
+          echo "dir=$dir" >> $GITHUB_OUTPUT
+      - run: cp ${{ steps.builddir.outputs.dir }}/index.html ${{ steps.builddir.outputs.dir }}/404.html
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ env.DIST_DIR }}
+          path: ${{ steps.builddir.outputs.dir }}
 
   deploy:
     needs: build
