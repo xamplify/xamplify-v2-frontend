@@ -27,28 +27,52 @@ jobs:
 
       - run: npm ci
 
-      # Choose base href:
-      # - For project Pages (most repos): "/<repo-name>/"
-      # - For custom domain or username.github.io: "/"
+      # For repo pages: "/<repo-name>/"
+      # For custom domain or username.github.io: "/"
       - name: Compute BASE_HREF for GitHub Pages
         run: echo "BASE_HREF=/${{ github.event.repository.name }}/" >> $GITHUB_ENV
 
       - name: Build Angular app
         run: npm run build -- --configuration production --base-href "$BASE_HREF"
 
-      # Read the outputPath from angular.json so we never hardcode it
-      - name: Resolve Angular dist path
+      # Robust resolver that reads angular.json (no brittle quoting)
+      - name: Resolve Angular dist path (robust)
         id: dist
+        shell: bash
         run: |
-          echo "DIST_DIR=$(node -e "const fs=require('fs');const a=JSON.parse(fs.readFileSync('angular.json','utf8'));const proj=Object.keys(a.projects)[0];process.stdout.write(a.projects[proj].architect.build.options.outputPath);")" >> $GITHUB_ENV
+          set -euo pipefail
+          DIST_DIR=$(node - <<'NODE'
+          const fs = require('fs');
+          const a = JSON.parse(fs.readFileSync('angular.json','utf8'));
+          const proj = a.defaultProject || Object.keys(a.projects || {})[0];
+          const p = (a.projects || {})[proj] || {};
+          const build = (p.architect && p.architect.build) || (p.targets && p.targets.build) || {};
+          const out = (build.options && build.options.outputPath) || '';
+          process.stdout.write(out);
+          NODE
+          )
+
+          # Fallback: if for some reason empty, find the first index.html under dist
+          if [ -z "${DIST_DIR:-}" ]; then
+            DIST_DIR="$(find dist -maxdepth 3 -type f -name index.html -print -quit | xargs -r -n1 dirname || true)"
+          fi
+
+          if [ -z "${DIST_DIR:-}" ]; then
+            echo "Could not determine build output. Did the build succeed?" >&2
+            exit 1
+          fi
+
+          echo "DIST_DIR=$DIST_DIR" >> "$GITHUB_ENV"
           echo "Resolved dist: $DIST_DIR"
           ls -lR "$DIST_DIR"
 
-      # Single Page App fallback so GitHub Pages serves index for deep links
-      - name: Copy SPA fallback (404.html)
+      - name: Create SPA fallback (404.html)
         run: cp "$DIST_DIR/index.html" "$DIST_DIR/404.html"
 
-      # Recommended by GitHub for Pages
+      # Avoid Jekyll processing (optional but nice to have)
+      - name: Add .nojekyll
+        run: touch "$DIST_DIR/.nojekyll"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
