@@ -881,7 +881,7 @@
                     <li><a class="dropdown-item d-flex align-items-center" [routerLink]="['/pages/chat']"><i
                                 class="ti ti-headset text-warning me-2 fs-16"></i>Support</a>
                     </li>
-                    <li class="py-2 px-3"><a class="btn btn-primary btn-sm w-100" [routerLink]="['/authentication/sign-up/basic']">Log Out</a>
+                    <li class="py-2 px-3"><a class="btn btn-primary btn-sm w-100" (click)="logout()">Log Out</a>
                     </li>
                 </ul>
             </li>

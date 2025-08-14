@@ -1,3 +1,4 @@
+import { AuthService } from '../../services/auth.service';
 import { ChangeDetectorRef, Component, ElementRef, inject, TemplateRef } from '@angular/core';
 import { AppStateService } from '../../services/app-state.service';
 import { NgbModal, NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
@@ -20,11 +21,20 @@ interface Item {
     standalone: false
 })
 export class HeaderComponent {
-  private modalService = inject(NgbModal);
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    public elementRef: ElementRef,
+    private appStateService: AppStateService,
+    public navServices: NavService,
+    private authService: AuthService
+  ) {}
 
-  constructor(private cdr: ChangeDetectorRef,  private activatedRoute: ActivatedRoute,private router: Router, 
-    public elementRef: ElementRef,private appStateService: AppStateService, public navServices: NavService,){
+  logout() {
+    this.authService.signOut();
   }
+  private modalService = inject(NgbModal);
   isNotifyEmpty: boolean = false;
   isCartEmpty: boolean = false;
   cartItemCount: number = 5;
