@@ -6,7 +6,7 @@
         path: 'create-invoice',
         loadComponent: () =>
           import('./create-invoice/create-invoice.component').then((m) => m.CreateInvoiceComponent),
-          title: 'Zynix - Create Invoice'
+          title: 'xAmplify - Create Invoice'
       },
       {
         path: 'invoice-details',
@@ -14,7 +14,7 @@
           import('./invoice-details/invoice-details.component').then(
             (m) => m.InvoiceDetailsComponent
           ),
-          title: 'Zynix - invoice Details'
+          title: 'xAmplify - invoice Details'
       },
       {
         path: 'invoice-list',
@@ -22,7 +22,7 @@
           import('./invoice-list/invoice-list.component').then(
             (m) => m.InvoiceListComponent
           ),
-          title: 'Zynix - Invoice-list'
+          title: 'xAmplify - Invoice-list'
       },
      
  

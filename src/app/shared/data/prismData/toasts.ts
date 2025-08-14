@@ -26,7 +26,7 @@ export let toastsReuse=
                src="./assets/images/brand-logos/favicon.ico"
                alt="Your Image"
                />
-               <strong class="me-auto">Zynix</strong>
+               <strong class="me-auto">xAmplify</strong>
                <small>11 mins ago</small>
          </ng-template>
          {{content}}

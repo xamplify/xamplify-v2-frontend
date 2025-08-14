@@ -6,7 +6,7 @@
         path: 'blog',
         loadComponent: () =>
           import('./blog/blog.component').then((m) => m.BlogComponent),
-          title: 'Zynix - Blog'
+          title: 'xAmplify - Blog'
       },
       {
         path: 'blog-details',
@@ -14,7 +14,7 @@
           import('./blog-details/blog-details.component').then(
             (m) => m.BlogDetailsComponent
           ),
-          title: 'Zynix - Blog Details'
+          title: 'xAmplify - Blog Details'
       },
       {
         path: 'create-blog',
@@ -22,7 +22,7 @@
           import('./create-blog/create-blog.component').then(
             (m) => m.CreateBlogComponent
           ),
-          title: 'Zynix -  Create Blog'
+          title: 'xAmplify -  Create Blog'
       },
       ]}
       ];

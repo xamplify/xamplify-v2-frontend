@@ -18,7 +18,7 @@ export default [
         path: 'mailapp',
         loadComponent: () =>
           import('./mailapp/mailapp.component').then((m) => m.MailappComponent),
-          title: 'Zynix - Mail App'
+          title: 'xAmplify - Mail App'
       },
       {
         path: 'mail-settings',
@@ -26,7 +26,7 @@ export default [
           import('./mailsettings/mailsettings.component').then(
             (m) => m.MailsettingsComponent
           ),
-          title: 'Zynix - Mail Settings'
+          title: 'xAmplify - Mail Settings'
       },
       ]}
       ];

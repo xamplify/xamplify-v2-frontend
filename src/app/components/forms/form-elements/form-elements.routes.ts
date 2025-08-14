@@ -6,7 +6,7 @@ export const admin: Routes = [
   path: 'inputs',
   loadComponent: () =>
     import('./inputs/inputs.component').then((m) => m.InputsComponent),
-    title: 'Zynix - Inputs'
+    title: 'xAmplify - Inputs'
 },
 {
   path: 'checks-radios',
@@ -14,7 +14,7 @@ export const admin: Routes = [
     import('./checksradios/checksradios.component').then(
       (m) => m.ChecksradiosComponent
     ),
-    title: 'Zynix - Checks-radios'
+    title: 'xAmplify - Checks-radios'
 },
 {
   path: 'inputgroup',
@@ -22,7 +22,7 @@ export const admin: Routes = [
     import('./inputgroup/inputgroup.component').then(
       (m) => m.InputgroupComponent
     ),
-    title: 'Zynix - Input group'
+    title: 'xAmplify - Input group'
 },
 {
     path: 'formselect',
@@ -30,7 +30,7 @@ export const admin: Routes = [
       import('./formselect/formselect.component').then(
         (m) => m.FormselectComponent
       ),
-      title: 'Zynix - Formselect'
+      title: 'xAmplify - Formselect'
   },
   {
     path: 'file-uploads',
@@ -38,7 +38,7 @@ export const admin: Routes = [
       import('./fileuploads/fileuploads.component').then(
         (m) => m.FileuploadsComponent
       ),
-      title: 'Zynix - File uploads'
+      title: 'xAmplify - File uploads'
   },
   
   {
@@ -47,7 +47,7 @@ export const admin: Routes = [
       import('./datetimepicker/datetimepicker.component').then(
         (m) => m.DatetimepickerComponent
       ),
-      title: 'Zynix - Date & timepicker'
+      title: 'xAmplify - Date & timepicker'
   },
   {
     path: 'color-pickers',
@@ -55,7 +55,7 @@ export const admin: Routes = [
       import('./colorpicker/colorpicker.component').then(
         (m) => m.ColorpickerComponent
       ),
-      title: 'Zynix - Color Pickers'
+      title: 'xAmplify - Color Pickers'
   },
   {
     path: 'inputs',
@@ -63,7 +63,7 @@ export const admin: Routes = [
       import('./inputs/inputs.component').then(
         (m) => m.InputsComponent
       ),
-      title: 'Zynix - Inputs'
+      title: 'xAmplify - Inputs'
   },
   {
     path: 'range-slider',
@@ -71,7 +71,7 @@ export const admin: Routes = [
       import('./rangeslider/rangeslider.component').then(
         (m) => m.RangesliderComponent
       ),
-      title: 'Zynix - Range Slider'
+      title: 'xAmplify - Range Slider'
   },
   {
     path: 'inputmask',
@@ -79,7 +79,7 @@ export const admin: Routes = [
       import('./input-mask/input-mask.component').then(
         (m) => m.InputMaskComponent
       ),
-      title: 'Zynix - Range Slider'
+      title: 'xAmplify - Range Slider'
   },
 ]}
 ];

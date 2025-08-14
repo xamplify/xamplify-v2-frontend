@@ -6,7 +6,7 @@ export const admin: Routes = [
         path: 'sales',
         loadComponent: () =>
           import('../sales/sales.component').then((m) => m.SalesComponent),
-          title: 'Zynix - Sales'
+          title: 'xAmplify - Sales'
       },
     ]
       }

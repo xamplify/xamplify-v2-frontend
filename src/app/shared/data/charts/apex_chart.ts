@@ -14834,7 +14834,7 @@ export let DonutPatternChartData = {
     },
   },
   colors: ['#546dfe', '#d77cf7', '#f4a742', '#49b6f5', '#ee335e'],
-  labels: ['Comedy', 'Action', 'Zynix', 'Drama', 'Horror'],
+  labels: ['Comedy', 'Action', 'xAmplify', 'Drama', 'Horror'],
   dataLabels: {
     enabled: true,
     style: {

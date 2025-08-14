@@ -6,7 +6,7 @@ export const admin: Routes = [
   path: 'accordions',
   loadComponent: () =>
     import('./accordions/accordions.component').then((m) => m.AccordionsComponent),
-    title: 'Zynix - Accordions'
+    title: 'xAmplify - Accordions'
 },
 {
   path: 'carousel',
@@ -14,7 +14,7 @@ export const admin: Routes = [
     import('./carousel/carousel.component').then(
       (m) => m.CarouselComponent
     ),
-    title: 'Zynix - Carousel'
+    title: 'xAmplify - Carousel'
 },
 {
   path: 'draggable-cards',
@@ -22,7 +22,7 @@ export const admin: Routes = [
     import('./draggable-cards/draggable-cards.component').then(
       (m) => m.DraggableCardsComponent
     ),
-    title: 'Zynix - Draggable Cards'
+    title: 'xAmplify - Draggable Cards'
 },
 {
   path: 'media-player',
@@ -30,7 +30,7 @@ export const admin: Routes = [
     import('./media-player/media-player.component').then(
       (m) => m.MediaPlayerComponent
     ),
-    title: 'Zynix - Media Player'
+    title: 'xAmplify - Media Player'
 },
 {
   path: 'modals-closes', 
@@ -38,7 +38,7 @@ export const admin: Routes = [
     import('../advancedui/modals-closes/modals-closes.component').then(
       (m) => m.ModalsClosesComponent
     ),    
-    title: 'Zynix - Modals Closes'
+    title: 'xAmplify - Modals Closes'
 },
 {
   path: 'placeholders',
@@ -46,61 +46,61 @@ export const admin: Routes = [
     import('../advancedui/placeholders/placeholders.component').then(
       (m) => m.PlaceholdersComponent
     ),
-    title: 'Zynix - Placeholders'
+    title: 'xAmplify - Placeholders'
 },
 {
   path: 'navbar',
   loadComponent: () =>
     import('./navbar/navbar.component').then((m) => m.NavbarComponent),
-    title: 'Zynix - Navbar'
+    title: 'xAmplify - Navbar'
 },
 {
   path: 'offcanvas',
   loadComponent: () =>
     import('./offcanvas/offcanvas.component').then((m) => m.OffcanvasComponent),
-    title: 'Zynix - Offcanvas'
+    title: 'xAmplify - Offcanvas'
 },
 {
   path: 'ratings',
   loadComponent: () =>
     import('./ratings/ratings.component').then((m) => m.RatingsComponent),
-    title: 'Zynix - Ratings'
+    title: 'xAmplify - Ratings'
 },
 {
   path: 'ribbons',
   loadComponent: () =>
     import('./ribbons/ribbons.component').then((m) => m.RibbonsComponent),
-    title: 'Zynix - Ribbons'
+    title: 'xAmplify - Ribbons'
 },
 {
   path: 'scrollspy',
   loadComponent: () =>
     import('./scrollspy/scrollspy.component').then((m) => m.ScrollspyComponent),
-    title: 'Zynix - Scrollspy'
+    title: 'xAmplify - Scrollspy'
 },
 {
   path: 'sortable-js',
   loadComponent: () =>
     import('./sortable-js/sortable-js.component').then((m) => m.SortableJsComponent),
-    title: 'Zynix - Sortable JS'
+    title: 'xAmplify - Sortable JS'
 },
 {
   path: 'swiperjs',  
   loadComponent: () =>
     import('./swiperjs/swiperjs.component').then((m) => m.SwiperjsComponent),
-    title: 'Zynix - Swiperjs'
+    title: 'xAmplify - Swiperjs'
 },
 {
   path: 'tour', 
   loadComponent: () =>
     import('./tour/tour.component').then((m) => m.TourComponent),
-    title: 'Zynix - Tour'
+    title: 'xAmplify - Tour'
 }, 
 {
   path: 'treeview', 
   loadComponent: () =>
     import('./treeview/treeview.component').then((m) => m.TreeviewComponent),
-    title: 'Zynix - treeview'
+    title: 'xAmplify - treeview'
 }, 
 ]}
 ]; 

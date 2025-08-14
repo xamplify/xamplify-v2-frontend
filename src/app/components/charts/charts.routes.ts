@@ -6,7 +6,7 @@
         path: 'chartjs',
         loadComponent: () =>
           import('./chartjs/chartjs.component').then((m) => m.ChartjsComponent),
-          title: 'Zynix - Chartsjs'
+          title: 'xAmplify - Chartsjs'
       },
       {
         path: 'echart',
@@ -14,7 +14,7 @@
           import('./echarts/echarts.component').then(
             (m) => m.EchartsComponent
           ),
-          title: 'Zynix - E-Charts'
+          title: 'xAmplify - E-Charts'
       },
       ]}
       ];

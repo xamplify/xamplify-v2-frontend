@@ -7,19 +7,19 @@ export const admin: Routes = [
   path: 'full-calender',
   loadComponent: () =>
     import('./fullcalendar/fullcalendar.component').then((m) => m.FullcalendarComponent),
-    title: 'Zynix - full Calender'
+    title: 'xAmplify - full Calender'
 },
 {
     path: 'gallery',
     loadComponent: () =>
       import('./gallery/gallery.component').then((m) => m.GalleryComponent),
-      title: 'Zynix - Gallery'
+      title: 'xAmplify - Gallery'
 },
   {
     path: 'sweetalerts',
     loadComponent: () =>
       import('./sweetalerts/sweetalerts.component').then((m) => m.SweetalertsComponent),
-      title: 'Zynix - Sweetalerts'
+      title: 'xAmplify - Sweetalerts'
   },
   {
     path: 'ecommerce/add-product',
@@ -27,7 +27,7 @@ export const admin: Routes = [
       import('./ecommerce/add-product/add-product.component').then(
         (m) => m.AddProductComponent
       ),
-      title: 'Zynix - Add Product'
+      title: 'xAmplify - Add Product'
   },
 {
   path: 'ecommerce/cart',
@@ -35,7 +35,7 @@ export const admin: Routes = [
     import('./ecommerce/cart/cart.component').then(
       (m) => m.CartComponent
     ),
-    title: 'Zynix - Cart'
+    title: 'xAmplify - Cart'
 },
 {
   path: 'ecommerce/checkout',
@@ -43,7 +43,7 @@ export const admin: Routes = [
     import('./ecommerce/check-out/check-out.component').then(
       (m) => m.CheckOutComponent
     ),
-    title: 'Zynix - Checkout'
+    title: 'xAmplify - Checkout'
 },
 {
   path: 'ecommerce/edit-product',
@@ -51,7 +51,7 @@ export const admin: Routes = [
     import('./ecommerce/edit-product/edit-product.component').then(
       (m) => m.EditProductComponent
     ),
-    title: 'Zynix - Edit Products'
+    title: 'xAmplify - Edit Products'
 },
 {
   path: 'ecommerce/order-details',
@@ -59,7 +59,7 @@ export const admin: Routes = [
     import('./ecommerce/order-details/order-details.component').then(
       (m) => m.OrderDetailsComponent
     ),
-    title: 'Zynix - Order Details'
+    title: 'xAmplify - Order Details'
 },
 {
   path: 'ecommerce/orders',
@@ -67,7 +67,7 @@ export const admin: Routes = [
     import('./ecommerce/orders/orders.component').then(
       (m) => m.OrdersComponent
     ),
-    title: 'Zynix - Orders'
+    title: 'xAmplify - Orders'
 },
 {
   path: 'ecommerce/products',
@@ -75,55 +75,55 @@ export const admin: Routes = [
     import('./ecommerce/products/products.component').then(
       (m) => m.ProductsComponent
     ),
-    title: 'Zynix - Products'
+    title: 'xAmplify - Products'
 },
 {
   path: 'ecommerce/product-details',
   loadComponent: () =>
     import('./ecommerce/product-details/product-details.component').then((m) => m.ProductDetailsComponent),
-    title: 'Zynix - Product Details'
+    title: 'xAmplify - Product Details'
 },
 {
   path: 'ecommerce/products-list',
   loadComponent: () =>
     import('./ecommerce/product-list/product-list.component').then((m) => m.ProductListComponent),
-    title: 'Zynix - Products list'
+    title: 'xAmplify - Products list'
 },
 {
   path: 'ecommerce/wishlist',
   loadComponent: () =>
     import('./ecommerce/wishlist/wishlist.component').then((m) => m.WishlistComponent),
-    title: 'Zynix - Wishlist'
+    title: 'xAmplify - Wishlist'
 },
   {
     path: 'crm/companies',
     loadComponent: () =>
       import('./crm/companies/companies.component').then((m) => m.CompaniesComponent),
-      title: 'Zynix - companies'
+      title: 'xAmplify - companies'
   },
   {
     path: 'crm/contacts',
     loadComponent: () =>
       import('./crm/contacts/contacts.component').then((m) => m.ContactsComponent),
-      title: 'Zynix - Contacts'
+      title: 'xAmplify - Contacts'
   },
   {
     path: 'crm/deals',
     loadComponent: () =>
       import('./crm/deals/deals.component').then((m) => m.DealsComponent),
-      title: 'Zynix - Deals'
+      title: 'xAmplify - Deals'
   },
   {
     path: 'crm/leads',
     loadComponent: () =>
       import('./crm/leads/leads.component').then((m) => m.LeadsComponent),
-      title: 'Zynix - Leads'
+      title: 'xAmplify - Leads'
   },
   {
     path: 'crypto/buy-sell',
     loadComponent: () =>
       import('./crypto/buy-sell/buy-sell.component').then((m) => m.BuySellComponent),
-      title: 'Zynix - Buy Sell'
+      title: 'xAmplify - Buy Sell'
   },
   {
     path: 'crypto/currency-exchange',
@@ -131,7 +131,7 @@ export const admin: Routes = [
       import('./crypto/currency-exchange/currency-exchange.component').then(
         (m) => m.CurrencyExchangeComponent
       ),
-      title: 'Zynix - Currency Exchange'
+      title: 'xAmplify - Currency Exchange'
   },
   {
     path: 'crypto/marketcap',
@@ -139,25 +139,25 @@ export const admin: Routes = [
       import('./crypto/market-cap/market-cap.component').then(
         (m) => m.MarketCapComponent
       ),
-      title: 'Zynix - Marketcap'
+      title: 'xAmplify - Marketcap'
   },
   {
     path: 'crypto/transactions',
     loadComponent: () =>
       import('./crypto/transactions/transactions.component').then((m) => m.TransactionsComponent),
-      title: 'Zynix - Transactions'
+      title: 'xAmplify - Transactions'
   },
   {
       path: 'crypto/wallet',
       loadComponent: () =>
         import('./crypto/wallet/wallet.component').then((m) => m.WalletComponent),
-        title: 'Zynix - Wallet'
+        title: 'xAmplify - Wallet'
     },
     {
       path: 'jobs/candidate-details',
       loadComponent: () =>
         import('./jobs/candidate-details/candidate-details.component').then((m) => m.CandidateDetailsComponent),
-        title: 'Zynix - Candidate Details'
+        title: 'xAmplify - Candidate Details'
     },
     {
       path: 'jobs/job-details',
@@ -165,7 +165,7 @@ export const admin: Routes = [
         import('./jobs/job-details/job-details.component').then(
           (m) => m.JobDetailsComponent
         ),
-        title: 'Zynix - Job Details'
+        title: 'xAmplify - Job Details'
     },
     {
       path: 'jobs/job-post',
@@ -173,7 +173,7 @@ export const admin: Routes = [
         import('./jobs/job-post/job-post.component').then(
           (m) => m.JobPostComponent
         ),
-        title: 'Zynix - Job Post'
+        title: 'xAmplify - Job Post'
     },
     {
         path: 'jobs/jobs-list',
@@ -181,7 +181,7 @@ export const admin: Routes = [
           import('./jobs/job-list/job-list.component').then(
             (m) => m.JobListComponent
           ),
-           title: 'Zynix - Jobs List'
+           title: 'xAmplify - Jobs List'
       },
       {
         path: 'jobs/search-candidate',
@@ -189,7 +189,7 @@ export const admin: Routes = [
           import('./jobs/search-candidate/search-candidate.component').then(
             (m) => m.SearchCandidateComponent
           ),
-          title: 'Zynix - Search Candidate'
+          title: 'xAmplify - Search Candidate'
       },
       {
         path: 'jobs/search-jobs',
@@ -197,7 +197,7 @@ export const admin: Routes = [
           import('./jobs/search-jobs/search-jobs.component').then(
             (m) => m.SearchJobsComponent
           ),
-          title: 'Zynix - Search Jobs'
+          title: 'xAmplify - Search Jobs'
       },
       {
         path: 'jobs/search-company',
@@ -205,13 +205,13 @@ export const admin: Routes = [
           import('./jobs/search-company/search-company.component').then(
             (m) => m.SearchCompanyComponent
           ),
-          title: 'Zynix - Search Company'
+          title: 'xAmplify - Search Company'
       },
       {
         path: 'nft/create-nft',
         loadComponent: () =>
           import('./nft/create-nft/create-nft.component').then((m) => m.CreateNftComponent),
-          title: 'Zynix - Create Nft'
+          title: 'xAmplify - Create Nft'
       },
       {
         path: 'nft/live-auction',
@@ -219,7 +219,7 @@ export const admin: Routes = [
           import('./nft/live-auction/live-auction.component').then(
             (m) => m.LiveAuctionComponent
           ),
-          title: 'Zynix - Live Auction'
+          title: 'xAmplify - Live Auction'
       },
       {
         path: 'nft/market-place',
@@ -227,7 +227,7 @@ export const admin: Routes = [
           import('./nft/market-place/market-place.component').then(
             (m) => m.MarketPlaceComponent
           ),
-          title: 'Zynix - Market Place'
+          title: 'xAmplify - Market Place'
       },
       {
           path: 'nft/nft-details',
@@ -235,7 +235,7 @@ export const admin: Routes = [
             import('./nft/nft-details/nft-details.component').then(
               (m) => m.NftDetailsComponent
             ),
-            title: 'Zynix - Nft Details'
+            title: 'xAmplify - Nft Details'
         },
         {
           path: 'nft/wallet-integration',
@@ -243,13 +243,13 @@ export const admin: Routes = [
             import('./nft/wallet-integration/wallet-integration.component').then(
               (m) => m.WalletIntegrationComponent
             ),
-            title: 'Zynix - Wallet Integration'
+            title: 'xAmplify - Wallet Integration'
         },
         {
           path: 'projects/create-project',
           loadComponent: () =>
             import('./projects/create-project/create-project.component').then((m) => m.CreateProjectComponent),
-            title: 'Zynix - Create Project'
+            title: 'xAmplify - Create Project'
         },
         {
           path: 'projects/project-overview',
@@ -257,7 +257,7 @@ export const admin: Routes = [
             import('./projects/project-overview/project-overview.component').then(
               (m) => m.ProjectOverviewComponent
             ),
-            title: 'Zynix - Project Overview'
+            title: 'xAmplify - Project Overview'
         },
         {
           path: 'projects/project-list',
@@ -265,13 +265,13 @@ export const admin: Routes = [
             import('./projects/project-list/project-list.component').then(
               (m) => m.ProjectListComponent
             ),
-            title: 'Zynix - Project List'
+            title: 'xAmplify - Project List'
         },
         {
           path: 'tasks/kanban-board',
           loadComponent: () =>
             import('./tasks/kanban-board/kanban-board.component').then((m) => m.KanbanBoardComponent),
-            title: 'Zynix - Kanban Board'
+            title: 'xAmplify - Kanban Board'
         },
         {
           path: 'tasks/list-view',
@@ -279,7 +279,7 @@ export const admin: Routes = [
             import('./tasks/list-view/list-view.component').then(
               (m) => m.ListViewComponent
             ),
-            title: 'Zynix - Project Overview'
+            title: 'xAmplify - Project Overview'
         },
         {
           path: 'tasks/task-details',
@@ -287,7 +287,7 @@ export const admin: Routes = [
             import('./tasks/task-details/task-details.component').then(
               (m) => m.TaskDetailsComponent
             ),
-            title: 'Zynix - Project List'
+            title: 'xAmplify - Project List'
         }
         
 ]}

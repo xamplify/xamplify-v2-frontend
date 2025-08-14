@@ -21,7 +21,7 @@ interface StateType {
   providedIn: 'root'
 })
 export class AppStateService {
-  private readonly localStorageKey = 'zynix-ng'; // Customize this key
+  private readonly localStorageKey = 'xAmplify-ng'; // Customize this key
   private initialState: StateType = {
     theme: 'light',            // light, dark
     direction: 'ltr',               // ltr, rtl

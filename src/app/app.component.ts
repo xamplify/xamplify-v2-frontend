@@ -9,7 +9,7 @@ import { AppStateService } from './shared/services/app-state.service';
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'zynix';
+  title = 'xAmplify';
   constructor(private appState : AppStateService){
     this.appState.updateState();
   }

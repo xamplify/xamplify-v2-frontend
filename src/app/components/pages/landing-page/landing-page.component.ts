@@ -79,8 +79,8 @@ export class LandingPageComponent {
   
     this.dynamicLightPrimaryColor(dynamicPrimaryLight, this.color1);
   
-    localStorage.setItem('zynix-primary-mode', this.hexToRgba(this.color1) || '');
-    localStorage.setItem('zynixlight-mode', 'true');
+    localStorage.setItem('xAmplify-primary-mode', this.hexToRgba(this.color1) || '');
+    localStorage.setItem('xAmplifylight-mode', 'true');
     this.body?.classList.remove('transparent-mode');
   
     // Adding
@@ -135,13 +135,13 @@ localStorageBackUp() {
   if (localStorage.getItem('dir') == 'rtl') {
     html?.setAttribute("dir", 'rtl');
   }
-  if (localStorage.getItem('zynixdarktheme')) {
-    const type: any = localStorage.getItem('zynixdarktheme');
+  if (localStorage.getItem('xAmplifydarktheme')) {
+    const type: any = localStorage.getItem('xAmplifydarktheme');
     html?.setAttribute('data-theme-mode', type);
    
   }
-  if (localStorage.getItem("zynix-primary-mode")) { 
-    const type: any = localStorage.getItem("zynix-primary-mode");
+  if (localStorage.getItem("xAmplify-primary-mode")) { 
+    const type: any = localStorage.getItem("xAmplify-primary-mode");
     html?.style.setProperty('--primary-rgb', type);
   }
 }
@@ -226,11 +226,11 @@ isDataToggled = false;
     const htmlElement =
       this.elementRef.nativeElement.ownerDocument.documentElement;
     this.renderer.setAttribute(htmlElement, 'data-header-styles', type1);
-    localStorage.setItem('zynixHeader', type1);
+    localStorage.setItem('xAmplifyHeader', type1);
     this.renderer.setAttribute(htmlElement, 'data-menu-styles', type1);
-    localStorage.setItem('zynixMenu', type1);
+    localStorage.setItem('xAmplifyMenu', type1);
     this.renderer.setAttribute(htmlElement, 'data-theme-mode', type1);
-    localStorage.setItem('zynixdarktheme', type1);
+    localStorage.setItem('xAmplifydarktheme', type1);
   }
   localdata:any=localStorage;
   //  Directions
@@ -247,8 +247,8 @@ isDataToggled = false;
       '--primary-rgb',
       type
     );
-    localStorage.setItem('zynix-primary-mode', type);
-    localStorage.removeItem('zynixlight-primary-color');
+    localStorage.setItem('xAmplify-primary-mode', type);
+    localStorage.removeItem('xAmplifylight-primary-color');
   }
 
   //reset switcher

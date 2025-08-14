@@ -6,7 +6,7 @@ export const admin: Routes = [
   path: 'icons',
   loadComponent: () =>
     import('./icons/icons.component').then((m) => m.IconsComponent),
-    title: 'Zynix - Icons'
+    title: 'xAmplify - Icons'
 },
 ]}
 ];

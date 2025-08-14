@@ -7,7 +7,7 @@ export const admin: Routes = [
   path: 'widgets',
   loadComponent: () =>
     import('./widgets/widgets.component').then((m) => m.WidgetsComponent),
-    title: 'Zynix - Widgets'
+    title: 'xAmplify - Widgets'
 },
 
 ]}

@@ -10,91 +10,91 @@
           import('./chat/chat.component').then(
             (m) => m.ChatComponent
           ),
-          title: 'Zynix - Chat'
+          title: 'xAmplify - Chat'
       },
       {
         path: 'empty',
         loadComponent: () =>
           import('./emptypage/emptypage.component').then((m) => m.EmptypageComponent),
-          title: 'Zynix - Empty'
+          title: 'xAmplify - Empty'
       },
       {
         path: 'faqs',
         loadComponent: () =>
           import('./faqs/faqs.component').then((m) => m.FaqsComponent),
-          title: 'Zynix - Faqs'
+          title: 'xAmplify - Faqs'
       },
       {
         path: 'file-manager',
         loadComponent: () =>
           import('./file-manager/file-manager.component').then((m) => m.FileManagerComponent),
-          title: 'Zynix - File-Manager'
+          title: 'xAmplify - File-Manager'
       },
       {
         path: 'timeline',
         loadComponent: () =>
           import('./timeline/timeline.component').then((m) => m.TimelineComponent),
-          title: 'Zynix - Timeline'
+          title: 'xAmplify - Timeline'
       },
       {
         path: 'notifications',
         loadComponent: () =>
           import('./notifications/notifications.component').then((m) => m.NotificationsComponent),
-          title: 'Zynix - Notifications'
+          title: 'xAmplify - Notifications'
       },
       {
         path: 'pricing',
         loadComponent: () =>
           import('./pricing/pricing.component').then((m) => m.PricingComponent),
-          title: 'Zynix - Pricing'
+          title: 'xAmplify - Pricing'
       },
       {
         path: 'team',
         loadComponent: () =>
           import('./team/team.component').then((m) => m.TeamComponent),
-          title: 'Zynix - Team'
+          title: 'xAmplify - Team'
       },
       {
         path: 'terms-conditions',
         loadComponent: () =>
           import('./terms-conditions/terms-conditions.component').then((m) => m.TermsConditionsComponent),
-          title: 'Zynix - Terms Conditions'
+          title: 'xAmplify - Terms Conditions'
       },
       {
         path: 'todolist',
         loadComponent: () =>
           import('./todolist/todolist.component').then((m) => m.TodolistComponent),
-          title: 'Zynix - Todolist'
+          title: 'xAmplify - Todolist'
       },
       {
         path: 'profile',
         loadComponent: () =>
           import('./profile/profile.component').then((m) => m.ProfileComponent),
-          title: 'Zynix - Profile'
+          title: 'xAmplify - Profile'
       },
       {
         path: 'profile-settings',
         loadComponent: () =>
           import('./profile-settings/profile-settings.component').then((m) => m.ProfileSettingsComponent),
-          title: 'Zynix - Profile Settings'
+          title: 'xAmplify - Profile Settings'
       },
       {
         path: 'profile-settings',
         loadComponent: () =>
           import('./profile-settings/profile-settings.component').then((m) => m.ProfileSettingsComponent),
-          title: 'Zynix - Profile Settings'
+          title: 'xAmplify - Profile Settings'
       },
       {
         path: 'reviews',
         loadComponent: () =>
           import('./reviews/reviews.component').then((m) => m.ReviewsComponent),
-          title: 'Zynix - Reviews'
+          title: 'xAmplify - Reviews'
       },
       {
         path: 'search-page',
         loadComponent: () =>
           import('./search-page/search-page.component').then((m) => SearchPageComponent),
-          title: 'Zynix - Search Page'
+          title: 'xAmplify - Search Page'
       },
       ]}
       ];

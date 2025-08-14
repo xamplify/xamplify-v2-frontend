@@ -6,7 +6,7 @@ export const admin: Routes = [
   path: 'coming-soon',
   loadComponent: () =>
     import('./commingsoon/commingsoon.component').then((m) => m.CommingsoonComponent),
-    title: 'Zynix - Coming Soon'
+    title: 'xAmplify - Coming Soon'
 },
 {
   path: 'under-maintainance',
@@ -14,7 +14,7 @@ export const admin: Routes = [
     import('./under-maintainance/under-maintainance.component').then(
       (m) => m.UnderMaintainanceComponent
     ),
-    title: 'Zynix - Under Maintainance'
+    title: 'xAmplify - Under Maintainance'
 },
 ]},
 {
@@ -26,7 +26,7 @@ export const admin: Routes = [
         import('./commingsoon/commingsoon.component').then(
           (m) => m.CommingsoonComponent
         ),
-        title: 'Zynix - Comming Soon'
+        title: 'xAmplify - Comming Soon'
     },
     {
       path: 'create-password/basic',
@@ -34,7 +34,7 @@ export const admin: Routes = [
         import('./create-password/basic/basic.component').then(
           (m) => m.BasicComponent
         ),
-        title: 'Zynix - Basic Create Password '
+        title: 'xAmplify - Basic Create Password '
     },
     {
       path: 'create-password/cover',
@@ -42,7 +42,7 @@ export const admin: Routes = [
         import('./create-password/cover/cover.component').then(
           (m) => m.CoverComponent
         ),
-        title: 'Zynix -Create Password Cover'
+        title: 'xAmplify -Create Password Cover'
     },
 
     {
@@ -51,7 +51,7 @@ export const admin: Routes = [
         import('./lock-screen/basic/basic.component').then(
           (m) => m.BasicComponent
         ),
-        title: 'Zynix - Basic Lock Screen'
+        title: 'xAmplify - Basic Lock Screen'
     },
     {
       path: 'lock-screen/cover',
@@ -59,7 +59,7 @@ export const admin: Routes = [
         import('./lock-screen/cover/cover.component').then(
           (m) => m.CoverComponent
         ),
-        title: 'Zynix - Lock Screen Cover'
+        title: 'xAmplify - Lock Screen Cover'
     },
     {
       path: 'reset-password/basic',
@@ -67,7 +67,7 @@ export const admin: Routes = [
         import('./reset-password/basic/basic.component').then(
           (m) => m.BasicComponent
         ),
-        title: 'Zynix - Basic Reset Password '
+        title: 'xAmplify - Basic Reset Password '
     },
     {
       path: 'reset-password/cover',
@@ -75,7 +75,7 @@ export const admin: Routes = [
         import('./reset-password/cover/cover.component').then(
           (m) => m.CoverComponent
         ),
-        title: 'Zynix - Reset Password Cover'
+        title: 'xAmplify - Reset Password Cover'
     },
     {
       path: 'sign-up/basic',
@@ -83,7 +83,7 @@ export const admin: Routes = [
         import('./signup/basic/basic.component').then(
           (m) => m.BasicComponent
         ),
-        title: 'Zynix - Basic Sign Up'
+        title: 'xAmplify - Basic Sign Up'
     },
     {
       path: 'sign-up/cover',
@@ -91,7 +91,7 @@ export const admin: Routes = [
         import('./signup/cover/cover.component').then(
           (m) => m.CoverComponent
         ),
-        title: 'Zynix - Cover Sign Up'
+        title: 'xAmplify - Cover Sign Up'
     },
     {
       path: 'sign-in/basic',
@@ -99,7 +99,7 @@ export const admin: Routes = [
         import('./signin/basic/basic.component').then(
           (m) => m.BasicComponent
         ),
-        title: 'Zynix - Basic Sign In'
+        title: 'xAmplify - Basic Sign In'
     },
     {
       path: 'sign-in/cover',
@@ -107,7 +107,7 @@ export const admin: Routes = [
         import('./signin/cover/cover.component').then(
           (m) => m.CoverComponent
         ),
-        title: 'Zynix - Sign In Cover'
+        title: 'xAmplify - Sign In Cover'
     },
     {
       path: 'twostep-verification/basic',

@@ -9,7 +9,7 @@ export const admin: Routes = [
         path: 'alerts',
         loadComponent: () =>
           import('./alerts/alerts.component').then((m) => m.AlertsComponent),
-        title: 'Zynix - Alerts',
+        title: 'xAmplify - Alerts',
       },
       {
         path: 'breadcrumb',
@@ -17,19 +17,19 @@ export const admin: Routes = [
           import('./breadcrumb/breadcrumb.component').then(
             (m) => m.BreadcrumbComponent
           ),
-        title: 'Zynix - Breadcrumb',
+        title: 'xAmplify - Breadcrumb',
       },
       {
         path: 'buttons',
         loadComponent: () =>
           import('./buttons/buttons.component').then((m) => m.ButtonsComponent),
-        title: 'Zynix - Buttons',
+        title: 'xAmplify - Buttons',
       },
       {
         path: 'badge',
         loadComponent: () =>
           import('./badge/badge.component').then((m) => m.BadgeComponent),
-        title: 'Zynix - Badge',
+        title: 'xAmplify - Badge',
       },
       {
         path: 'button-group',
@@ -37,13 +37,13 @@ export const admin: Routes = [
           import('./buttongroup/buttongroup.component').then(
             (m) => m.ButtongroupComponent
           ),
-        title: 'Zynix - Button Group',
+        title: 'xAmplify - Button Group',
       },
       {
         path: 'cards',
         loadComponent: () =>
           import('./cards/cards.component').then((m) => m.CardsComponent),
-        title: 'Zynix - Cards',
+        title: 'xAmplify - Cards',
       },
       {
         path: 'dropdowns',
@@ -51,7 +51,7 @@ export const admin: Routes = [
           import('./dropdowns/dropdowns.component').then(
             (m) => m.DropdownsComponent
           ),
-        title: 'Zynix - Dropdowns',
+        title: 'xAmplify - Dropdowns',
       },
       {
         path: 'images&figures',
@@ -59,7 +59,7 @@ export const admin: Routes = [
           import('./images-figures/images-figures.component').then(
             (m) => m.ImagesFiguresComponent
           ),
-        title: 'Zynix - Images-Figures',
+        title: 'xAmplify - Images-Figures',
       },
       {
         path: 'links-interactions',
@@ -67,7 +67,7 @@ export const admin: Routes = [
           import('./links-interactions/links-interactions.component').then(
             (m) => m.LinksInteractionsComponent
           ),
-        title: 'Zynix - Links Interactions',
+        title: 'xAmplify - Links Interactions',
       },
       {
         path: 'list-group',
@@ -75,13 +75,13 @@ export const admin: Routes = [
           import('./listgroup/listgroup.component').then(
             (m) => m.ListgroupComponent
           ),
-        title: 'Zynix - List group',
+        title: 'xAmplify - List group',
       },
       {
         path: 'nav-tabs',
         loadComponent: () =>
           import('./navtabs/navtabs.component').then((m) => m.NavtabsComponent),
-        title: 'Zynix - Navtabs',
+        title: 'xAmplify - Navtabs',
       },
       {
         path: 'objectfit',
@@ -89,7 +89,7 @@ export const admin: Routes = [
           import('./objectfit/objectfit.component').then(
             (m) => m.ObjectfitComponent
           ),
-        title: 'Zynix - Objectfit',
+        title: 'xAmplify - Objectfit',
       },
       {
         path: 'pagination',
@@ -97,7 +97,7 @@ export const admin: Routes = [
           import('./pagination/pagination.component').then(
             (m) => m.PaginationComponent
           ),
-        title: 'Zynix - Pagination',
+        title: 'xAmplify - Pagination',
       },
       {
         path: 'popovers',
@@ -105,13 +105,13 @@ export const admin: Routes = [
           import('./popovers/popovers.component').then(
             (m) => m.PopoversComponent
           ),
-        title: 'Zynix - Popovers',
+        title: 'xAmplify - Popovers',
       },
       {
         path: 'toasts',
         loadComponent: () =>
           import('./toasts/toasts.component').then((m) => m.ToastsComponent),
-        title: 'Zynix - toasts',
+        title: 'xAmplify - toasts',
       },
       {
         path: 'progress',
@@ -119,7 +119,7 @@ export const admin: Routes = [
           import('./progress/progress.component').then(
             (m) => m.ProgressComponent
           ),
-        title: 'Zynix - Progress',
+        title: 'xAmplify - Progress',
       },
       {
         path: 'spinners',
@@ -127,13 +127,13 @@ export const admin: Routes = [
           import('./spinners/spinners.component').then(
             (m) => m.SpinnersComponent
           ),
-        title: 'Zynix - Spinners',
+        title: 'xAmplify - Spinners',
       },
       {
         path: 'toasts',
         loadComponent: () =>
           import('./toasts/toasts.component').then((m) => m.ToastsComponent),
-        title: 'Zynix - Toasts',
+        title: 'xAmplify - Toasts',
       },
       {
         path: 'tooltips',
@@ -141,7 +141,7 @@ export const admin: Routes = [
           import('./tooltips/tooltips.component').then(
             (m) => m.TooltipsComponent
           ),
-        title: 'Zynix - Tooltips',
+        title: 'xAmplify - Tooltips',
       },
       {
         path: 'typography',
@@ -149,7 +149,7 @@ export const admin: Routes = [
           import('./typography/typography.component').then(
             (m) => m.TypographyComponent
           ),
-        title: 'Zynix - Typography',
+        title: 'xAmplify - Typography',
       },
     ],
   },

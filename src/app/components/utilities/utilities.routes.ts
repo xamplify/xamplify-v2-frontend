@@ -6,7 +6,7 @@ export const admin: Routes = [
   path: 'avatars',
   loadComponent: () =>
     import('./avatars/avatars.component').then((m) => m.AvatarsComponent),
- title: 'Zynix - Avatars'
+ title: 'xAmplify - Avatars'
   },
 {
   path: 'borders',
@@ -14,7 +14,7 @@ export const admin: Routes = [
     import('./borders/borders.component').then(
       (m) => m.BordersComponent
     ),
- title: 'Zynix - Borders'
+ title: 'xAmplify - Borders'
   },
 {
   path: 'break-point',
@@ -22,7 +22,7 @@ export const admin: Routes = [
     import('./break-point/break-point.component').then(
       (m) => m.BreakPointComponent
     ),
- title: 'Zynix - Break-point'
+ title: 'xAmplify - Break-point'
   },
 {
   path: 'colors',
@@ -30,49 +30,49 @@ export const admin: Routes = [
     import('./colors/colors.component').then(
       (m) => m.ColorsComponent
     ),
- title: 'Zynix - Colors'
+ title: 'xAmplify - Colors'
   },
 {
   path: 'columns',
   loadComponent: () =>
     import('./columns/columns.component').then((m) => m.ColumnsComponent),
- title: 'Zynix - Columns'
+ title: 'xAmplify - Columns'
   },
   {
     path: 'css-grid',
     loadComponent: () =>
       import('./css-grid/css-grid.component').then((m) => m.CssGridComponent),
-   title: 'Zynix - Css Grid'
+   title: 'xAmplify - Css Grid'
     },
 {
   path: 'flex',
   loadComponent: () =>
     import('./flex/flex.component').then((m) => m.FlexComponent),
- title: 'Zynix - Flex'
+ title: 'xAmplify - Flex'
   },
 {
   path: 'gutters',
   loadComponent: () =>
     import('./gutter/gutter.component').then((m) => m.GutterComponent),
- title: 'Zynix - Gutters'
+ title: 'xAmplify - Gutters'
   },
 {  
   path: 'helpers',
   loadComponent: () =>
     import('./helper/helper.component').then((m) => m.HelperComponent),
- title: 'Zynix - Helpers'
+ title: 'xAmplify - Helpers'
   },
 {
   path: 'position',
   loadComponent: () =>
     import('./position/position.component').then((m) => m.PositionComponent),
- title: 'Zynix - Position'
+ title: 'xAmplify - Position'
   },
 {
   path: 'additional-content',
   loadComponent: () =>
     import('./additional-content/additional-content.component').then((m) => m.AdditionalContentComponent),
-    title: 'Zynix - Additional-content'
+    title: 'xAmplify - Additional-content'
 },
 
 

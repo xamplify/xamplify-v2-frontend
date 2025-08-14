@@ -150,15 +150,15 @@ export class HeaderComponent {
   
     let html = document.querySelector('html');
     //Theme Color Mode:
-    if (localStorage.getItem('zynixHeader') == 'dark') {
-      if (localStorage.getItem('zynixdarktheme')) {
-        const type: any = localStorage.getItem('zynixdarktheme');
+    if (localStorage.getItem('xAmplifyHeader') == 'dark') {
+      if (localStorage.getItem('xAmplifydarktheme')) {
+        const type: any = localStorage.getItem('xAmplifydarktheme');
         html?.setAttribute('data-theme-mode', type);
         html?.setAttribute('data-header-styles', type);
         html?.setAttribute('data-menu-styles', type);
       }
-      if (localStorage.getItem('zynixdarktheme') == 'light') {
-        const type: any = localStorage.getItem('zynixdarktheme');
+      if (localStorage.getItem('xAmplifydarktheme') == 'light') {
+        const type: any = localStorage.getItem('xAmplifydarktheme');
         html?.setAttribute('data-theme-mode', type);
         html?.setAttribute('data-header-styles', type);
         html?.setAttribute('data-menu-styles', type);
@@ -299,11 +299,11 @@ export class HeaderComponent {
     let html = this.elementRef.nativeElement.ownerDocument.documentElement;
  
     window.addEventListener('resize', () => {
-      if (localStorage.getItem('zynixverticalstyles') != 'icon-text-close') {
+      if (localStorage.getItem('xAmplifyverticalstyles') != 'icon-text-close') {
         if (windowObject.innerWidth <= '991') {
           html?.setAttribute('data-toggled', 'open');
         } else {
-          if (!(localStorage.getItem('zynixverticalstyles') == 'doublemenu')) {
+          if (!(localStorage.getItem('xAmplifyverticalstyles') == 'doublemenu')) {
             html?.removeAttribute('data-toggled');
           }
         }

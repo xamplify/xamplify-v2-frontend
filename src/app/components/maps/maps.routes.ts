@@ -7,13 +7,13 @@ export const admin: Routes = [
   path: 'leafletmaps',
   loadComponent: () =>
     import('./leafletmaps/leafletmaps.component').then((m) => m.LeafletmapsComponent),
-    title: 'Zynix - Leaflet Map'
+    title: 'xAmplify - Leaflet Map'
 },
 {
   path: 'google-map',
   loadComponent: () =>
     import('./google-map/google-map.component').then((m) => m.GoogleMapComponent),
-    title: 'Zynix - Google Map'
+    title: 'xAmplify - Google Map'
 },
 ]}
 ];

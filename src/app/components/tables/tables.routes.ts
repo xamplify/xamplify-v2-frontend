@@ -9,7 +9,7 @@ export const admin: Routes = [
         path: 'tables',
         loadComponent: () =>
           import('./tables/tables.component').then((m) => m.TablesComponent),
-          title: 'Zynix - Tables'
+          title: 'xAmplify - Tables'
       },
       {
         path: 'angular-material-tables',
@@ -17,7 +17,7 @@ export const admin: Routes = [
           import(
             './angular-material-tables/angular-material-tables.component'
           ).then((m) => m.AngularMaterialTablesComponent),
-          title: 'Zynix - Angular Material Tables'
+          title: 'xAmplify - Angular Material Tables'
       },
       {
         path: 'ngx-easy-table',
@@ -25,7 +25,7 @@ export const admin: Routes = [
           import('./ngx-easy-table/ngx-easy-table.component').then(
             (m) => m.NgxEasyTableComponent
           ),
-          title: 'Zynix - Ngx Easy Table'
+          title: 'xAmplify - Ngx Easy Table'
       },
       
     ],

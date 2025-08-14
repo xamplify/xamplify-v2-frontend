@@ -7,13 +7,13 @@ export const admin: Routes = [
     path: 'form-advanced',
     loadComponent: () =>
       import('./form-advanced/form-advanced.component').then((m) => m.FormAdvancedComponent),
-      title: 'Zynix - Form Advanced'
+      title: 'xAmplify - Form Advanced'
   },
   {
   path: 'form-layouts',
   loadComponent: () =>
     import('./form-layouts/form-layouts.component').then((m) => m.FormLayoutsComponent),
-    title: 'Zynix - Form Layouts'
+    title: 'xAmplify - Form Layouts'
 },
 {
   path: 'form-editor',
@@ -29,7 +29,7 @@ export const admin: Routes = [
   path: 'floating-labels',
   loadComponent: () =>
     import('./floating-labels/floating-labels.component').then((m) => m.FloatingLabelsComponent),
-    title: 'Zynix - Floating Labels'
+    title: 'xAmplify - Floating Labels'
 },
 {
   path: 'validation',
@@ -37,7 +37,7 @@ export const admin: Routes = [
     import('./validation/validation.component').then(
       (m) => m.ValidationComponent
     ),
-    title: 'Zynix - Validation'
+    title: 'xAmplify - Validation'
 },
 {
   path: 'select2',
@@ -45,7 +45,7 @@ export const admin: Routes = [
     import('./select2/select2.component').then(
       (m) => m.Select2Component
     ),
-    title: 'Zynix - Select2'
+    title: 'xAmplify - Select2'
 },
 
 ]}
