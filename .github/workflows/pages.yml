@@ -30,8 +30,10 @@ jobs:
       - run: npm run build -- --configuration production --base-href "/"
 
       # Always use dist/xamplify-v2-frontend as the output directory
+      - name: List build output
+        run: ls -lR ${{ github.workspace }}/dist
       - name: Copy SPA fallback (404.html)
-        run: cp ${{ github.workspace }}/dist/xamplify-v2-frontend/index.html ${{ github.workspace }}/dist/xamplify-v2-frontend/404.html
+        run: cp dist/xamplify-v2-frontend/index.html dist/xamplify-v2-frontend/404.html
 
       - uses: actions/upload-pages-artifact@v3
         with:
