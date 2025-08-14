@@ -14,12 +14,16 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ToastrModule } from 'ngx-toastr';
 
 import { errorInterceptor } from './core/interceptors/error.interceptor';
+import { authInterceptor } from './core/interceptors/auth.interceptor';
+import { GlobalErrorHandler } from './core/handlers/global-error.handler';
+import { ErrorHandler } from '@angular/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([errorInterceptor])),
+  provideHttpClient(withInterceptors([authInterceptor, errorInterceptor])),
+  { provide: ErrorHandler, useClass: GlobalErrorHandler },
     provideCharts(withDefaultRegisterables()),
     importProvidersFrom(
       BrowserAnimationsModule,
