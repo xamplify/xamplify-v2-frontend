@@ -1,6 +1,6 @@
 # xamplify-v2-frontned
 
-This project runs on [Angular CLI](https://github.com/angular/angular-cli) **version 20.1.4** (uses the Vite-based builder for faster dev builds and HMR).
+This project runs on [Angular CLI](https://github.com/angular/angular-cli) **version 20.1.7** (uses the Vite-based builder for faster dev builds and HMR).
 
 ## Development server
 
@@ -29,3 +29,4 @@ Run `ng e2e` to execute end-to-end tests via a platform of your choice. To use t
 
 For more help with the Angular CLI, use `ng help` or see the Angular CLI docs:
 https://angular.dev/tools/cli
+
