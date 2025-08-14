@@ -34,9 +34,9 @@ jobs:
         id: builddir
         shell: bash
         run: |
-          dir=$(find dist -type f -name index.html -path "*/browser/*" | head -n1 | xargs -r dirname)
+          dir=$(find dist -type f -name index.html | head -n1 | xargs -r dirname)
           if [[ -z "$dir" ]]; then
-            echo "No index.html found under dist/**/browser"; exit 1
+            echo "No index.html found under dist/**"; exit 1
           fi
           echo "dir=$dir" >> "$GITHUB_OUTPUT"
 
