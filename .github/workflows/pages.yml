@@ -14,24 +14,49 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+env:
+  NODE_VERSION: "20"
+  BASE_PATH: "/xamplify-v2-frontend/"
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-      - run: npm ci
-      - run: npm run build -- --configuration production --base-href "/xamplify-v2-frontend/"
-      - name: Find build output
-        id: builddir
+
+      - name: Install dependencies
         run: |
-          dir=$(find dist preview -type f -name index.html | head -n 1 | xargs dirname)
+          export NG_CLI_ANALYTICS=false
+          npm ci
+
+      # ✅ Correct base href and deploy url so assets (fonts, css, js) resolve under the repo subpath
+      - name: Build Angular app
+        run: |
+          npm run build -- --configuration production --base-href "${BASE_PATH}" --deploy-url "${BASE_PATH}"
+
+      # ✅ Locate Angular dist folder (works for both dist/app and dist/app/browser layouts)
+      - name: Locate build output folder
+        id: builddir
+        shell: bash
+        run: |
+          dir=$(find dist -type f -name index.html | grep -E '/(browser/)?index\.html$' | head -n 1 | xargs dirname)
+          if [ -z "$dir" ]; then
+            echo "❌ Could not find dist output (index.html)"; exit 1
+          fi
           echo "dir=$dir" >> $GITHUB_OUTPUT
-      - run: cp ${{ steps.builddir.outputs.dir }}/index.html ${{ steps.builddir.outputs.dir }}/404.html
-      - uses: actions/upload-pages-artifact@v3
+          echo "Resolved build directory: $dir"
+
+      # ✅ SPA fallback so that Angular routes (e.g. /login) don’t 404 on refresh
+      - name: Create 404 fallback
+        run: cp "${{ steps.builddir.outputs.dir }}/index.html" "${{ steps.builddir.outputs.dir }}/404.html"
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ steps.builddir.outputs.dir }}
 
