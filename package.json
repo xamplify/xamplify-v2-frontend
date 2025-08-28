@@ -2,13 +2,14 @@
   "name": "xamplify-v2-frontend",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "echo \"No tests configured\" && exit 0",
-    "sass": "sass ./public/assets/scss:./public/assets/css/",
-    "sass-min": "sass ./public/assets/scss:./public/assets/css/ --style compressed"
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "postbuild": "node postbuild.js",
+  "watch": "ng build --watch --configuration development",
+  "test": "echo \"No tests configured\" && exit 0",
+  "sass": "sass ./public/assets/scss:./public/assets/css/",
+  "sass-min": "sass ./public/assets/scss:./public/assets/css/ --style compressed"
   },
   "private": true,
   "dependencies": {
