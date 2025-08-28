@@ -1,3 +1,4 @@
+# Trigger redeploy
 # xamplify-v2-frontned
 
 This project runs on [Angular CLI](https://github.com/angular/angular-cli) **version 20.1.7** (uses the Vite-based builder for faster dev builds and HMR).
