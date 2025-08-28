@@ -22580,6 +22580,25 @@ html[data-theme-mode=light][data-theme-variant=glassy-light] .list-group-item {
   background: none;
 }
 
+/* Make table cell backgrounds none only for glassy-light variant */
+html[data-theme-mode=glassy-light] .table > :not(caption) > * > *,
+html[data-theme-mode=light][data-theme-variant=glassy-light] .table > :not(caption) > * > * {
+  background: none;
+}
+
+/* Theme-scoped utility: .bg-light only in glassy-light */
+html[data-theme-mode=glassy-light] .bg-light,
+html[data-theme-mode=light][data-theme-variant=glassy-light] .bg-light {
+  background: none !important;
+}
+
+/* Theme-scoped utility: .bg-white only in glassy-light */
+html[data-theme-mode=glassy-light] .bg-white,
+html[data-theme-mode=light][data-theme-variant=glassy-light] .bg-white {
+  background: none !important;
+  border-top: none;
+}
+
 /* Apply when the same html has both theme-mode and header-styles attributes */
 html[data-theme-mode=glassy-light][data-header-styles=transparent] .app-header,
 html[data-theme-mode=light][data-theme-variant=glassy-light][data-header-styles=transparent] .app-header {
@@ -22654,6 +22673,25 @@ html[data-theme-mode=dark][data-theme-variant=glassy-dark] .list-group-item {
   background: none;
 }
 
+/* Make table cell backgrounds none only for glassy-dark variant */
+html[data-theme-mode=glassy-dark] .table > :not(caption) > * > *,
+html[data-theme-mode=dark][data-theme-variant=glassy-dark] .table > :not(caption) > * > * {
+  background: none;
+}
+
+/* Theme-scoped utility: .bg-light only in glassy-dark */
+html[data-theme-mode=glassy-dark] .bg-light,
+html[data-theme-mode=dark][data-theme-variant=glassy-dark] .bg-light {
+  background: none !important;
+}
+
+/* Theme-scoped utility: .bg-white only in glassy-dark */
+html[data-theme-mode=glassy-dark] .bg-white,
+html[data-theme-mode=dark][data-theme-variant=glassy-dark] .bg-white {
+  background: none !important;
+  border-top: none;
+}
+
 /* Neu Light – blue/white/grey palette (variables style) */
 html[data-theme-mode=neu-light],
 html[data-theme-mode=light][data-theme-variant=neu-light] {
@@ -22707,6 +22745,25 @@ html[data-theme-mode=light][data-theme-variant=neu-light][data-header-styles=tra
 html[data-theme-mode=neu-light] .list-group-item,
 html[data-theme-mode=light][data-theme-variant=neu-light] .list-group-item {
   background: none;
+}
+
+/* Make table cell backgrounds none only for neu-light variant */
+html[data-theme-mode=neu-light] .table > :not(caption) > * > *,
+html[data-theme-mode=light][data-theme-variant=neu-light] .table > :not(caption) > * > * {
+  background: none;
+}
+
+/* Theme-scoped utility: .bg-light only in neu-light */
+html[data-theme-mode=neu-light] .bg-light,
+html[data-theme-mode=light][data-theme-variant=neu-light] .bg-light {
+  background: none !important;
+}
+
+/* Theme-scoped utility: .bg-white only in neu-light */
+html[data-theme-mode=neu-light] .bg-white,
+html[data-theme-mode=light][data-theme-variant=neu-light] .bg-white {
+  background: none !important;
+  border-top: none;
 }
 
 /* Neu Dark (Neumorphism Dark) — variable style */
@@ -22763,6 +22820,25 @@ html[data-theme-mode=dark][data-theme-variant=neu-dark][data-header-styles=trans
 html[data-theme-mode=neu-dark] .list-group-item,
 html[data-theme-mode=dark][data-theme-variant=neu-dark] .list-group-item {
   background: none;
+}
+
+/* Make table cell backgrounds none only for neu-dark variant */
+html[data-theme-mode=neu-dark] .table > :not(caption) > * > *,
+html[data-theme-mode=dark][data-theme-variant=neu-dark] .table > :not(caption) > * > * {
+  background: none;
+}
+
+/* Theme-scoped utility: .bg-light only in neu-dark */
+html[data-theme-mode=neu-dark] .bg-light,
+html[data-theme-mode=dark][data-theme-variant=neu-dark] .bg-light {
+  background: none !important;
+}
+
+/* Theme-scoped utility: .bg-white only in neu-dark */
+html[data-theme-mode=neu-dark] .bg-white,
+html[data-theme-mode=dark][data-theme-variant=neu-dark] .bg-white {
+  background: none !important;
+  border-top: none;
 }
 
 .authentication {

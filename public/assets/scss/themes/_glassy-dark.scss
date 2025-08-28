@@ -68,3 +68,22 @@ html[data-theme-mode="glassy-dark"] .list-group-item,
 html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] .list-group-item {
   background: none;
 }
+
+/* Make table cell backgrounds none only for glassy-dark variant */
+html[data-theme-mode="glassy-dark"] .table > :not(caption) > * > *,
+html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] .table > :not(caption) > * > * {
+  background: none;
+}
+
+/* Theme-scoped utility: .bg-light only in glassy-dark */
+html[data-theme-mode="glassy-dark"] .bg-light,
+html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] .bg-light {
+  background: none !important;
+}
+
+/* Theme-scoped utility: .bg-white only in glassy-dark */
+html[data-theme-mode="glassy-dark"] .bg-white,
+html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] .bg-white {
+  background: none !important;
+  border-top: none;
+}

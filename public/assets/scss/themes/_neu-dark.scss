@@ -58,3 +58,22 @@ html[data-theme-mode="neu-dark"] .list-group-item,
 html[data-theme-mode="dark"][data-theme-variant="neu-dark"] .list-group-item {
   background: none;
 }
+
+/* Make table cell backgrounds none only for neu-dark variant */
+html[data-theme-mode="neu-dark"] .table > :not(caption) > * > *,
+html[data-theme-mode="dark"][data-theme-variant="neu-dark"] .table > :not(caption) > * > * {
+  background: none;
+}
+
+/* Theme-scoped utility: .bg-light only in neu-dark */
+html[data-theme-mode="neu-dark"] .bg-light,
+html[data-theme-mode="dark"][data-theme-variant="neu-dark"] .bg-light {
+  background: none !important;
+}
+
+/* Theme-scoped utility: .bg-white only in neu-dark */
+html[data-theme-mode="neu-dark"] .bg-white,
+html[data-theme-mode="dark"][data-theme-variant="neu-dark"] .bg-white {
+  background: none !important;
+  border-top: none;
+}

@@ -88,6 +88,25 @@ html[data-theme-mode="light"][data-theme-variant="glassy-light"] .list-group-ite
   background: none;
 }
 
+/* Make table cell backgrounds none only for glassy-light variant */
+html[data-theme-mode="glassy-light"] .table > :not(caption) > * > *,
+html[data-theme-mode="light"][data-theme-variant="glassy-light"] .table > :not(caption) > * > * {
+  background: none;
+}
+
+/* Theme-scoped utility: .bg-light only in glassy-light */
+html[data-theme-mode="glassy-light"] .bg-light,
+html[data-theme-mode="light"][data-theme-variant="glassy-light"] .bg-light {
+  background: none !important;
+}
+
+/* Theme-scoped utility: .bg-white only in glassy-light */
+html[data-theme-mode="glassy-light"] .bg-white,
+html[data-theme-mode="light"][data-theme-variant="glassy-light"] .bg-white {
+  background: none !important;
+  border-top: none;
+}
+
 /* Apply when the same html has both theme-mode and header-styles attributes */
 html[data-theme-mode="glassy-light"][data-header-styles="transparent"] .app-header,
 html[data-theme-mode="light"][data-theme-variant="glassy-light"][data-header-styles="transparent"] .app-header {
