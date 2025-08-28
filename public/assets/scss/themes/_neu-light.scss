@@ -1,0 +1,21 @@
+// Neumorphism Light (placeholder)
+// Minimal placeholder for neu-light variant. Keep deltas minimal; you will
+// add actual neumorphism tokens later. Scoped to avoid leaks.
+
+html[data-theme-mode="neu-light"],
+html[data-theme-mode="light"][data-theme-variant="neu-light"] {
+  /* TODO: neumorphism light overrides (shadows, subtle elevations) */
+  --neu-placeholder: 1;
+}
+
+/* Neu-light card overrides (mirror glassy-light selector pattern) */
+html[data-theme-mode="neu-light"] .card.custom-card,
+html[data-theme-mode="neu-light"] .card,
+html[data-theme-mode="light"][data-theme-variant="neu-light"] .card.custom-card,
+html[data-theme-mode="light"][data-theme-variant="neu-light"] .card {
+  background-color: var(--surface-card-bg);
+  background: #f0f5fa !important;
+  box-shadow: inset 5px 5px 10px #d6dadf, inset -5px -5px 10px #fff !important;
+  border: 0 solid #ececec !important;
+  border-radius: 10px !important;
+}

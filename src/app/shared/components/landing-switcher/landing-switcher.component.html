@@ -52,7 +52,7 @@
               <div class="">
                 <p class="switcher-style-head">Theme Color Mode:</p>
                 <div class="row switcher-style gx-0">
-                  <div class="col-4">
+                  <div class="col-3">
                     <div class="form-check switch-select">
                       <label
                         class="form-check-label"
@@ -63,7 +63,7 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="theme-style"
+                        name="theme-mode"
                         id="switcher-light-theme"
                         checked
                         (click)="themeChange('light', 'light')"
@@ -71,7 +71,7 @@
                       />
                     </div>
                   </div>
-                  <div class="col-4">
+                  <div class="col-3">
                     <div class="form-check switch-select">
                       <label class="form-check-label" for="switcher-dark-theme">
                         Dark
@@ -79,10 +79,74 @@
                       <input
                         class="form-check-input"
                         type="radio"
-                        name="theme-style"
+                        name="theme-mode"
                         id="switcher-dark-theme"
                         (click)="themeChange('dark', 'dark')"
                         [checked]="localdata['ynexdarktheme'] == 'dark'"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-3">
+                    <div class="form-check switch-select">
+                      <label class="form-check-label" for="switcher-glassy-light">
+                        Glassy Light
+                      </label>
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="theme-mode"
+                        id="switcher-glassy-light"
+                        (click)="themeChange('glassy-light', 'light')"
+                        [checked]="localdata['ynexdarktheme'] === 'glassy-light'"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-3">
+                    <div class="form-check switch-select">
+                      <label class="form-check-label" for="switcher-glassy-dark">
+                        Glassy Dark
+                      </label>
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="theme-mode"
+                        id="switcher-glassy-dark"
+                        (click)="themeChange('glassy-dark', 'dark')"
+                        [checked]="localdata['ynexdarktheme'] === 'glassy-dark'"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-3">
+                    <div class="form-check switch-select">
+                      <label class="form-check-label" for="switcher-neu-light">
+                        Neu Light
+                      </label>
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="theme-mode"
+                        id="switcher-neu-light"
+                        (click)="themeChange('neu-light', 'light')"
+                        [checked]="localdata['ynexdarktheme'] === 'neu-light'"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-3">
+                    <div class="form-check switch-select">
+                      <label class="form-check-label" for="switcher-neu-dark">
+                        Neu Dark
+                      </label>
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="theme-mode"
+                        id="switcher-neu-dark"
+                        (click)="themeChange('neu-dark', 'dark')"
+                        [checked]="localdata['ynexdarktheme'] === 'neu-dark'"
                       />
                     </div>
                   </div>

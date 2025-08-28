@@ -1,4 +1,8 @@
 @use "./variables";
+/* Make sidebar header transparent by default across themes */
+.app-sidebar .main-sidebar-header {
+  background: none !important;
+}
 /* Sidemenu Layout Syles */
 @media (max-width: 991.98px) {
   .sidemenu-layout-styles {

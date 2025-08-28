@@ -95,6 +95,12 @@ typography
 @forward "bootstrap/tooltips";
 
 /* CUSTOM */
+/* Theme variants (non-duplicating partials) */
+@forward "themes/glassy-light";
+@forward "themes/glassy-dark";
+@forward "themes/neu-light";
+@forward "themes/neu-dark";
+
 @forward "custom/authentication";
 @forward "custom/custom";
 @forward "custom/dashboard_styles";
@@ -105,6 +111,8 @@ typography
 @forward "custom/plugins";
 @forward "custom/ribbons";
 @forward "custom/widgets";
+
+/* (previous duplicate forwards removed) */
 
 /* MENU-STYLES */
 @forward "menu-styles/closed_menu";
@@ -135,5 +143,16 @@ typography
 @forward "util/opacity";
 @forward "util/typography";
 
+/* Local Gantari font-face (place font files in public/assets/fonts/) */
+@font-face {
+	font-family: 'Gantari';
+	src: url('../fonts/gantari.woff2') format('woff2'),
+			 url('../fonts/gantari.woff') format('woff');
+	font-weight: 300 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Quicksand still loaded from Google Fonts as fallback */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 

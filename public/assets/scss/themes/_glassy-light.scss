@@ -1,0 +1,85 @@
+// Glassy Light theme partial
+// Minimal overrides that layer glassmorphism on top of the base Light tokens.
+// All rules are strictly scoped under html[data-theme-mode="glassy-light"] to
+// avoid leaking styles into other modes.
+
+/* combined selector placed at top-level so Sass does not duplicate the html selector */
+html[data-theme-mode="glassy-light"] body,
+html[data-theme-mode="light"][data-theme-variant="glassy-light"] body {
+  /* use theme variables so compiled CSS references tokens */
+  background-attachment: var(--glassy-bg-attachment);
+  background-image: var(--glassy-bg-image) !important;
+  background-repeat: var(--glassy-bg-repeat) !important;
+  background-size: var(--glassy-bg-size) !important;
+}
+
+html[data-theme-mode="glassy-light"],
+html[data-theme-mode="light"][data-theme-variant="glassy-light"] {
+  /* Surface tokens (adjust names to match repository variables) */
+  --surface-bg: rgba(255, 255, 255, 0.60);
+  --surface-card-bg: rgba(255, 255, 255, 0.50);
+  --surface-border: rgba(255, 255, 255, 0.35);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+
+  /* Glassy Light theme-specific variables */
+  --glassy-card-bg: rgba(255, 255, 255, 0.3098039216);
+  --glassy-card-border: rgba(255, 255, 255, 0.35);
+  --glassy-card-shadow: 0 4px 14px var(--shadow-color);
+
+  /* Background image & layout tokens */
+  --glassy-bg-image: url('/assets/images/glassmorphism-images/glassmorphism.png');
+  --glassy-bg-attachment: fixed;
+  --glassy-bg-repeat: no-repeat;
+  --glassy-bg-size: cover;
+  --glassy-bg-position: center center;
+  --glassy-min-height: 100vh;
+
+  /* Glass panel / filter tokens */
+  --glassy-backdrop-blur: 8px;
+  --glassy-backdrop-saturate: 110%;
+  --glassy-panel-shadow: 0 6px 18px var(--shadow-color);
+  --glassy-border-width: 1px;
+
+  /* Slightly lift primary contrast to keep readability on translucent surfaces */
+  --default-text-color: rgba(17, 24, 39, 0.95);
+}
+
+/* Class-level rules: keep separate for clarity */
+html[data-theme-mode="glassy-light"] .main-content,
+html[data-theme-mode="light"][data-theme-variant="glassy-light"] .main-content {
+  background: transparent !important;
+}
+
+html[data-theme-mode="glassy-light"] .glass-panel,
+html[data-theme-mode="light"][data-theme-variant="glassy-light"] .glass-panel {
+  background: var(--surface-card-bg) !important;
+  border: var(--glassy-border-width) solid var(--glassy-card-border) !important;
+  box-shadow: var(--glassy-panel-shadow) !important;
+  backdrop-filter: blur(var(--glassy-backdrop-blur)) saturate(var(--glassy-backdrop-saturate));
+  -webkit-backdrop-filter: blur(var(--glassy-backdrop-blur)) saturate(var(--glassy-backdrop-saturate));
+}
+
+html[data-theme-mode="glassy-light"] .card.custom-card,
+html[data-theme-mode="glassy-light"] .card,
+html[data-theme-mode="light"][data-theme-variant="glassy-light"] .card.custom-card,
+html[data-theme-mode="light"][data-theme-variant="glassy-light"] .card {
+  background-color: var(--surface-card-bg);
+  background: var(--glassy-card-bg);
+  border: var(--glassy-border-width) solid var(--glassy-card-border);
+  box-shadow: var(--glassy-card-shadow);
+}
+
+/* app-sidebar: no explicit glassy-light override here — fall back to base sidebar rules */
+
+/* Make sidebar transparent only when header style is explicitly 'transparent' (mirror header behavior) */
+html[data-theme-mode="glassy-light"][data-header-styles="transparent"] .app-sidebar,
+html[data-theme-mode="light"][data-theme-variant="glassy-light"][data-header-styles="transparent"] .app-sidebar {
+  background: none;
+}
+
+/* Apply when the same html has both theme-mode and header-styles attributes */
+html[data-theme-mode="glassy-light"][data-header-styles="transparent"] .app-header,
+html[data-theme-mode="light"][data-theme-variant="glassy-light"][data-header-styles="transparent"] .app-header {
+  background: none;
+}
+/* end _glassy-light.scss */

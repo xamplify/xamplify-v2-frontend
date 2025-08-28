@@ -45,7 +45,29 @@ export class AppStateService {
   constructor() {
     const initialState: StateType = this.getInitialStateFromLocalStorage();
     this.initializeState();
-    this.stateSubject.next(initialState);
+    // If a theme was persisted using the switcher (older key 'ynexdarktheme'),
+    // apply it now so child themes like 'glassy-dark' correctly inherit their parent.
+    try {
+      const persisted = localStorage.getItem('ynexdarktheme');
+      if (persisted) {
+        // Apply persisted theme (this will set header/menu presets and data-theme-mode)
+        // If persisted 'glassy-light' and explicit menu/header not set, initialize them to transparent
+        const storedMenu = localStorage.getItem('ynexMenu');
+        const storedHeader = localStorage.getItem('ynexHeader');
+        if (persisted === 'glassy-light') {
+          if (!storedMenu) try { localStorage.setItem('ynexMenu', 'transparent'); } catch(e) {}
+          if (!storedHeader) try { localStorage.setItem('ynexHeader', 'transparent'); } catch(e) {}
+        }
+        this.applythemeSpecificChanges(persisted);
+        // Ensure the stateSubject reflects the persisted theme
+        const stateWithTheme = { ...initialState, theme: persisted } as StateType;
+        this.stateSubject.next(stateWithTheme);
+      } else {
+        this.stateSubject.next(initialState);
+      }
+    } catch (e) {
+      this.stateSubject.next(initialState);
+    }
   }
 
   private getInitialStateFromLocalStorage(): StateType {
@@ -102,9 +124,98 @@ export class AppStateService {
   }
   private applythemeSpecificChanges(theme: string) {
     let html = document.querySelector('html');
-    html?.setAttribute('data-theme-mode', theme);  //setting theme style
-    html?.setAttribute('data-header-styles', theme); //setting header style
-    html?.setAttribute('data-menu-styles', theme); //setting menu style
+    // Debug - show incoming theme and current attributes
+    try {
+      console.debug('applythemeSpecificChanges called', { theme, current: html?.getAttribute('data-theme-mode') });
+    } catch (e) {}
+
+    // Cleanup: if a legacy single-mode value like 'glassy-light' or 'glassy-dark' was left
+    // on the root, remove it so parent+variant layering (data-theme-mode + data-theme-variant)
+    // is enforced. Also clear any inline body backgroundImage to avoid glassy-light bleed.
+    try {
+      const currentMode = html?.getAttribute('data-theme-mode') || '';
+      if (currentMode.startsWith('glassy-') || currentMode.startsWith('neu-')) {
+        html?.removeAttribute('data-theme-mode');
+      }
+      if (document.body && document.body.style && document.body.style.backgroundImage) {
+        document.body.style.backgroundImage = '';
+      }
+    } catch (e) {}
+
+    // Explicit handling for glassy child themes: apply parent presets first
+    if (theme === 'glassy-dark') {
+      // ensure any light-mode inline tokens are removed so dark base isn't overwritten
+      if (html) {
+        html.style.removeProperty('--body-bg-rgb');
+        html.style.removeProperty('--body-bg-rgb2');
+        html.style.removeProperty('--light-rgb');
+        html.style.removeProperty('--gray-3');
+      }
+  // Apply dark base presets first
+  html?.setAttribute('data-header-styles', 'dark');
+  html?.setAttribute('data-menu-styles', 'dark');
+  // Keep data-theme-mode as parent 'dark' so base tokens apply
+  html?.setAttribute('data-theme-mode', 'dark');
+  // Use a separate attribute for the child/variant so SCSS can target it
+  html?.setAttribute('data-theme-variant', 'glassy-dark');
+  try { localStorage.setItem('ynexdarktheme', 'glassy-dark'); } catch (e) {}
+      try { console.debug('applythemeSpecificChanges applied', { theme: 'glassy-dark', header: html?.getAttribute('data-header-styles') }); } catch (e) {}
+      return;
+    }
+
+    // Neumorphism child themes - apply parent and set variant
+    if (theme === 'neu-dark') {
+      if (html) {
+        html.style.removeProperty('--body-bg-rgb');
+        html.style.removeProperty('--body-bg-rgb2');
+        html.style.removeProperty('--light-rgb');
+        html.style.removeProperty('--gray-3');
+      }
+  html?.setAttribute('data-header-styles', 'dark');
+  html?.setAttribute('data-menu-styles', 'dark');
+  html?.setAttribute('data-theme-mode', 'dark');
+  html?.setAttribute('data-theme-variant', 'neu-dark');
+  try { localStorage.setItem('ynexdarktheme', 'neu-dark'); } catch (e) {}
+  try { console.debug('applythemeSpecificChanges applied', { theme: 'neu-dark' }); } catch (e) {}
+      return;
+    }
+
+    if (theme === 'neu-light') {
+      if (html) {
+        html.style.removeProperty('--body-bg-rgb');
+        html.style.removeProperty('--body-bg-rgb2');
+        html.style.removeProperty('--light-rgb');
+        html.style.removeProperty('--gray-3');
+      }
+  html?.setAttribute('data-header-styles', 'light');
+  html?.setAttribute('data-menu-styles', 'light');
+  html?.setAttribute('data-theme-mode', 'light');
+  html?.setAttribute('data-theme-variant', 'neu-light');
+  try { localStorage.setItem('ynexdarktheme', 'neu-light'); } catch (e) {}
+  try { console.debug('applythemeSpecificChanges applied', { theme: 'neu-light' }); } catch (e) {}
+      return;
+    }
+
+    if (theme === 'glassy-light') {
+      if (html) {
+        html.style.removeProperty('--body-bg-rgb');
+        html.style.removeProperty('--body-bg-rgb2');
+        html.style.removeProperty('--light-rgb');
+        html.style.removeProperty('--gray-3');
+      }
+  html?.setAttribute('data-header-styles', 'light');
+  html?.setAttribute('data-menu-styles', 'light');
+  html?.setAttribute('data-theme-mode', 'light');
+  html?.setAttribute('data-theme-variant', 'glassy-light');
+  try { localStorage.setItem('ynexdarktheme', 'glassy-light'); } catch (e) {}
+      try { console.debug('applythemeSpecificChanges applied', { theme: 'glassy-light', header: html?.getAttribute('data-header-styles') }); } catch (e) {}
+      return;
+    }
+
+    // Default: apply the theme directly for non-child themes
+    html?.setAttribute('data-theme-mode', theme);
+    html?.setAttribute('data-header-styles', theme);
+    html?.setAttribute('data-menu-styles', theme);
   }
   
   private applyNavigationStylesSpecificChanges(navigationStyles: string) {

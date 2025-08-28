@@ -40,15 +40,71 @@ rgb: any;
 
 // Theme color Mode
 themeChange(type: string, type1: string) {
-  const htmlElement =
-    this.elementRef.nativeElement.ownerDocument.documentElement;
-  this.renderer.setAttribute(htmlElement, 'data-header-styles', type1);
-  localStorage.setItem('ynexHeader', type1);
-  this.renderer.setAttribute(htmlElement, 'data-menu-styles', type1);
-  localStorage.setItem('ynexMenu', type1);
-  this.renderer.setAttribute(htmlElement, 'data-theme-mode', type1);
-  localStorage.setItem('ynexdarktheme', type1);
+  // type = actual theme mode to set (e.g. 'glassy-light')
+  // type1 = header/menu preset (commonly 'light' or 'dark')
+  const htmlElement = this.elementRef.nativeElement.ownerDocument.documentElement;
 
+  // Normalize parent for glassy children explicitly
+  if (type === 'glassy-light') {
+    type1 = 'light';
+  }
+  if (type === 'glassy-dark') {
+    // force parent mapping to dark to avoid accidental light fallbacks
+    type1 = 'dark';
+  }
+  // Normalize parent for neu (neumorphism) children
+  if (type === 'neu-light') {
+    type1 = 'light';
+  }
+  if (type === 'neu-dark') {
+    type1 = 'dark';
+  }
+
+  // Apply parent header/menu presets first
+  // For glassy-light, auto-apply Transparent Header + Transparent Menu
+  if (type === 'glassy-light') {
+    this.renderer.setAttribute(htmlElement, 'data-header-styles', 'transparent');
+    localStorage.setItem('ynexHeader', 'transparent');
+    this.renderer.setAttribute(htmlElement, 'data-menu-styles', 'transparent');
+    localStorage.setItem('ynexMenu', 'transparent');
+  } else {
+    // Apply parent (base) presets first so glassy child overlays inherit correctly
+    this.renderer.setAttribute(htmlElement, 'data-header-styles', type1);
+    localStorage.setItem('ynexHeader', type1);
+    this.renderer.setAttribute(htmlElement, 'data-menu-styles', type1);
+    localStorage.setItem('ynexMenu', type1);
+  }
+
+  // Clear any specific light-only classes if switching to dark glassy
+  if (type === 'glassy-dark') {
+    document.body.classList.remove('light-mode');
+    document.body.classList.remove('transparent-mode');
+  }
+
+  // Then set the actual theme-mode (child) so overrides apply on top of base
+  // If the selected theme is a child (glassy-*), keep the parent's theme-mode
+  // attribute and set a separate variant attribute so base tokens defined for
+  // 'dark' or 'light' still apply. Persist the child identifier.
+  if (type.startsWith('glassy-')) {
+    // set parent as the actual theme-mode
+    this.renderer.setAttribute(htmlElement, 'data-theme-mode', type1);
+    // set the child/variant attribute
+    this.renderer.setAttribute(htmlElement, 'data-theme-variant', type);
+    localStorage.setItem('ynexdarktheme', type);
+  } else {
+    // normal theme (no child variant)
+    this.renderer.setAttribute(htmlElement, 'data-theme-mode', type);
+    // remove variant if any
+    this.renderer.removeAttribute(htmlElement, 'data-theme-variant');
+    localStorage.setItem('ynexdarktheme', type);
+  }
+
+  // Debug hook — remove after verification
+  try {
+    console.debug('themeChange', { theme: type, parentApplied: type1, htmlAttr: document.documentElement.getAttribute('data-theme-mode'), stored: localStorage.getItem('ynexdarktheme') });
+  } catch (e) {}
+
+  // Keep existing cleanup behavior for light preset
   if (localStorage.getItem('ynexHeader') == 'light') {
     this.elementRef.nativeElement.ownerDocument.documentElement?.removeAttribute(
       'style'

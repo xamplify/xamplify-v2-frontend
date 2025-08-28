@@ -1,0 +1,9 @@
+// Neumorphism Dark (placeholder)
+// Minimal placeholder for neu-dark variant. Keep deltas minimal; you will
+// add actual neumorphism tokens later. Scoped to avoid leaks.
+
+html[data-theme-mode="neu-dark"],
+html[data-theme-mode="dark"][data-theme-variant="neu-dark"] {
+  /* TODO: neumorphism dark overrides (subtle embossed shadows, contrasts) */
+  --neu-placeholder: 1;
+}

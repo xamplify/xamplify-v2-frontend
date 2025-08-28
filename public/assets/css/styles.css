@@ -65,6 +65,7 @@ typography
 */
 /* FONT */
 /* Quicksand */
+/* Local Gantari font-face (place font files in public/assets/fonts/) */
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 :root {
   --body-bg-rgb: 245, 246, 250;
@@ -215,6 +216,11 @@ typography
   --black-7: rgba(255, 255, 255, 0.7);
   --black-8: rgba(255, 255, 255, 0.8);
   --black-9: rgba(255, 255, 255, 0.9);
+}
+
+/* Make sidebar header transparent by default across themes */
+.app-sidebar .main-sidebar-header {
+  background: none !important;
 }
 
 /* Sidemenu Layout Syles */
@@ -17615,7 +17621,7 @@ html[dir=rtl] .translate-middle {
 }
 
 .card.custom-card {
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   background-color: var(--custom-white);
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
   border: 0px solid var(--default-border);
@@ -17911,15 +17917,23 @@ html[dir=rtl] .translate-middle {
     transform: translateY(0rem);
     opacity: 1;
   }
+  0% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
 }
 @-webkit-keyframes slideIn {
   0% {
-  -webkit-transform: translateY(1rem);
-  opacity: 0;
+    -webkit-transform: transform;
+    -webkit-opacity: 0;
   }
   100% {
     -webkit-transform: translateY(0);
-  opacity: 1;
+    -webkit-opacity: 1;
+  }
+  0% {
+    -webkit-transform: translateY(1rem);
+    -webkit-opacity: 0;
   }
 }
 .dropdown-menu {
@@ -22486,6 +22500,145 @@ caption {
 }
 
 /* CUSTOM */
+/* Theme variants (non-duplicating partials) */
+/* combined selector placed at top-level so Sass does not duplicate the html selector */
+html[data-theme-mode=glassy-light] body,
+html[data-theme-mode=light][data-theme-variant=glassy-light] body {
+  /* use theme variables so compiled CSS references tokens */
+  background-attachment: var(--glassy-bg-attachment);
+  background-image: var(--glassy-bg-image) !important;
+  background-repeat: var(--glassy-bg-repeat) !important;
+  background-size: var(--glassy-bg-size) !important;
+}
+
+html[data-theme-mode=glassy-light],
+html[data-theme-mode=light][data-theme-variant=glassy-light] {
+  /* Surface tokens (adjust names to match repository variables) */
+  --surface-bg: rgba(255, 255, 255, 0.60);
+  --surface-card-bg: rgba(255, 255, 255, 0.50);
+  --surface-border: rgba(255, 255, 255, 0.35);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  /* Glassy Light theme-specific variables */
+  --glassy-card-bg: rgba(255, 255, 255, 0.3098039216);
+  --glassy-card-border: rgba(255, 255, 255, 0.35);
+  --glassy-card-shadow: 0 4px 14px var(--shadow-color);
+  /* Background image & layout tokens */
+  --glassy-bg-image: url("/assets/images/glassmorphism-images/glassmorphism.png");
+  --glassy-bg-attachment: fixed;
+  --glassy-bg-repeat: no-repeat;
+  --glassy-bg-size: cover;
+  --glassy-bg-position: center center;
+  --glassy-min-height: 100vh;
+  /* Glass panel / filter tokens */
+  --glassy-backdrop-blur: 8px;
+  --glassy-backdrop-saturate: 110%;
+  --glassy-panel-shadow: 0 6px 18px var(--shadow-color);
+  --glassy-border-width: 1px;
+  /* Slightly lift primary contrast to keep readability on translucent surfaces */
+  --default-text-color: rgba(17, 24, 39, 0.95);
+}
+
+/* Class-level rules: keep separate for clarity */
+html[data-theme-mode=glassy-light] .main-content,
+html[data-theme-mode=light][data-theme-variant=glassy-light] .main-content {
+  background: transparent !important;
+}
+
+html[data-theme-mode=glassy-light] .glass-panel,
+html[data-theme-mode=light][data-theme-variant=glassy-light] .glass-panel {
+  background: var(--surface-card-bg) !important;
+  border: var(--glassy-border-width) solid var(--glassy-card-border) !important;
+  box-shadow: var(--glassy-panel-shadow) !important;
+  backdrop-filter: blur(var(--glassy-backdrop-blur)) saturate(var(--glassy-backdrop-saturate));
+  -webkit-backdrop-filter: blur(var(--glassy-backdrop-blur)) saturate(var(--glassy-backdrop-saturate));
+}
+
+html[data-theme-mode=glassy-light] .card.custom-card,
+html[data-theme-mode=glassy-light] .card,
+html[data-theme-mode=light][data-theme-variant=glassy-light] .card.custom-card,
+html[data-theme-mode=light][data-theme-variant=glassy-light] .card {
+  background-color: var(--surface-card-bg);
+  background: var(--glassy-card-bg);
+  border: var(--glassy-border-width) solid var(--glassy-card-border);
+  box-shadow: var(--glassy-card-shadow);
+}
+
+/* app-sidebar: no explicit glassy-light override here — fall back to base sidebar rules */
+/* Make sidebar transparent only when header style is explicitly 'transparent' (mirror header behavior) */
+html[data-theme-mode=glassy-light][data-header-styles=transparent] .app-sidebar,
+html[data-theme-mode=light][data-theme-variant=glassy-light][data-header-styles=transparent] .app-sidebar {
+  background: none;
+}
+
+/* Apply when the same html has both theme-mode and header-styles attributes */
+html[data-theme-mode=glassy-light][data-header-styles=transparent] .app-header,
+html[data-theme-mode=light][data-theme-variant=glassy-light][data-header-styles=transparent] .app-header {
+  background: none;
+}
+
+/* end _glassy-light.scss */
+/* Body-level background for glassy-dark (temporary external image) */
+html[data-theme-mode=glassy-dark] body,
+html[data-theme-mode=dark][data-theme-variant=glassy-dark] body {
+  background-attachment: fixed;
+  background-image: url("https://xamplify.co/assets/images/glassmorphism-images/glassmorphism-dark.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+html[data-theme-mode=glassy-dark],
+html[data-theme-mode=dark][data-theme-variant=glassy-dark] {
+  /* Minimal placeholder token for the glassy-dark variant */
+  --glassy-placeholder: 1;
+}
+
+/* Card styles for glassy-dark (override background and border as requested) */
+html[data-theme-mode=glassy-dark] .card.custom-card,
+html[data-theme-mode=glassy-dark] .card,
+html[data-theme-mode=dark][data-theme-variant=glassy-dark] .card.custom-card,
+html[data-theme-mode=dark][data-theme-variant=glassy-dark] .card {
+  background-color: var(--surface-card-bg);
+  background: rgba(0, 0, 0, 0.18) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--glassy-dark-card-shadow);
+}
+
+/* Make header transparent only when header style is explicitly 'transparent' */
+html[data-theme-mode=glassy-dark][data-header-styles=transparent] .app-header,
+html[data-theme-mode=dark][data-theme-variant=glassy-dark][data-header-styles=transparent] .app-header {
+  background: none;
+}
+
+/* Make sidebar transparent only when header style is explicitly 'transparent' (mirror header behavior) */
+html[data-theme-mode=glassy-dark][data-header-styles=transparent] .app-sidebar,
+html[data-theme-mode=dark][data-theme-variant=glassy-dark][data-header-styles=transparent] .app-sidebar {
+  background: none;
+}
+
+html[data-theme-mode=neu-light],
+html[data-theme-mode=light][data-theme-variant=neu-light] {
+  /* TODO: neumorphism light overrides (shadows, subtle elevations) */
+  --neu-placeholder: 1;
+}
+
+/* Neu-light card overrides (mirror glassy-light selector pattern) */
+html[data-theme-mode=neu-light] .card.custom-card,
+html[data-theme-mode=neu-light] .card,
+html[data-theme-mode=light][data-theme-variant=neu-light] .card.custom-card,
+html[data-theme-mode=light][data-theme-variant=neu-light] .card {
+  background-color: var(--surface-card-bg);
+  background: #f0f5fa !important;
+  box-shadow: inset 5px 5px 10px #d6dadf, inset -5px -5px 10px #fff !important;
+  border: 0 solid #ececec !important;
+  border-radius: 10px !important;
+}
+
+html[data-theme-mode=neu-dark],
+html[data-theme-mode=dark][data-theme-variant=neu-dark] {
+  /* TODO: neumorphism dark overrides (subtle embossed shadows, contrasts) */
+  --neu-placeholder: 1;
+}
+
 .authentication {
   min-height: 100vh;
 }
@@ -28433,10 +28586,6 @@ swiper-container::part(button-prev) {
   background-color: var(--custom-white) !important;
 }
 
-.mat-mdc-table-sticky {
-  position: sticky !important;
-}
-
 .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input,
 .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input::placeholder {
   color: var(--default-text-color) !important;
@@ -29765,7 +29914,10 @@ app-footer {
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+  }
+  0% {
+    opacity: 0;
+    transform: translateY(6rem);
   }
 }
 [dir=rtl] .sidemenu-toggle .open-toggle {
@@ -34125,6 +34277,7 @@ input.error {
   fill: var(--text-muted);
 }
 
+/* (previous duplicate forwards removed) */
 /* MENU-STYLES */
 [data-vertical-style=closed][data-toggled=close-menu-close] .app-sidebar {
   display: none;
@@ -35735,8 +35888,8 @@ input.error {
   transition: all 0.05s ease;
 }
 .app-sidebar .main-sidebar-header .header-logo img {
-  height: 1.5rem;
-  line-height: 1.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
 }
 .app-sidebar .main-sidebar-header .header-logo .desktop-logo {
   display: block;
@@ -42322,5 +42475,13 @@ a.link-underline-dark {
 }
 
 /* End:: Focus Ring */
+@font-face {
+  font-family: "Gantari";
+  src: url("../fonts/gantari.woff2") format("woff2"), url("../fonts/gantari.woff") format("woff");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Quicksand still loaded from Google Fonts as fallback */
 
 /*# sourceMappingURL=styles.css.map */

@@ -45,7 +45,7 @@
             <div class="">
               <p class="switcher-style-head">Theme Color Mode:</p>
               <div class="row switcher-style gx-0">
-                <div class="col-4">
+                <div class="col-3">
                   <div class="form-check switch-select">
                     <label class="form-check-label" for="switcher-light-theme">
                       Light
@@ -60,7 +60,7 @@
                     />
                   </div>
                 </div>
-                <div class="col-4">
+                <div class="col-3">
                   <div class="form-check switch-select">
                     <label class="form-check-label" for="switcher-dark-theme">
                       Dark
@@ -72,6 +72,67 @@
                       id="switcher-dark-theme"
                       (click)="updateTheme('dark')"
                       [checked]="localdata['theme'] == 'dark'"
+                    />
+                  </div>
+                </div>
+                
+                <div class="col-3">
+                  <div class="form-check switch-select">
+                    <label class="form-check-label" for="switcher-glassy-light">
+                      Glassy Light
+                    </label>
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="theme-style"
+                      id="switcher-glassy-light"
+                      (click)="updateTheme('glassy-light')"
+                      [checked]="localdata['theme'] == 'glassy-light'"
+                    />
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check switch-select">
+                    <label class="form-check-label" for="switcher-glassy-dark">
+                      Glassy Dark
+                    </label>
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="theme-style"
+                      id="switcher-glassy-dark"
+                      (click)="updateTheme('glassy-dark')"
+                      [checked]="localdata['theme'] == 'glassy-dark'"
+                    />
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check switch-select">
+                    <label class="form-check-label" for="switcher-neu-light">
+                      Neu Light
+                    </label>
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="theme-style"
+                      id="switcher-neu-light"
+                      (click)="updateTheme('neu-light')"
+                      [checked]="localdata['theme'] == 'neu-light'"
+                    />
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-check switch-select">
+                    <label class="form-check-label" for="switcher-neu-dark">
+                      Neu Dark
+                    </label>
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="theme-style"
+                      id="switcher-neu-dark"
+                      (click)="updateTheme('neu-dark')"
+                      [checked]="localdata['theme'] == 'neu-dark'"
                     />
                   </div>
                 </div>

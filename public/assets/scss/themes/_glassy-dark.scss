@@ -1,0 +1,40 @@
+// Glassy Dark minimal placeholder
+// Keep this file small — update values later as needed.
+
+/* Body-level background for glassy-dark (temporary external image) */
+html[data-theme-mode="glassy-dark"] body,
+html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] body {
+  background-attachment: fixed;
+  background-image: url("https://xamplify.co/assets/images/glassmorphism-images/glassmorphism-dark.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+html[data-theme-mode="glassy-dark"],
+html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] {
+  /* Minimal placeholder token for the glassy-dark variant */
+  --glassy-placeholder: 1;
+}
+
+/* Card styles for glassy-dark (override background and border as requested) */
+html[data-theme-mode="glassy-dark"] .card.custom-card,
+html[data-theme-mode="glassy-dark"] .card,
+html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] .card.custom-card,
+html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] .card {
+  background-color: var(--surface-card-bg);
+  background: rgb(0 0 0 / 18%) !important;
+  border: 1px solid #ffffff33;
+  box-shadow: var(--glassy-dark-card-shadow);
+}
+
+/* Make header transparent only when header style is explicitly 'transparent' */
+html[data-theme-mode="glassy-dark"][data-header-styles="transparent"] .app-header,
+html[data-theme-mode="dark"][data-theme-variant="glassy-dark"][data-header-styles="transparent"] .app-header {
+  background: none;
+}
+
+/* Make sidebar transparent only when header style is explicitly 'transparent' (mirror header behavior) */
+html[data-theme-mode="glassy-dark"][data-header-styles="transparent"] .app-sidebar,
+html[data-theme-mode="dark"][data-theme-variant="glassy-dark"][data-header-styles="transparent"] .app-sidebar {
+  background: none;
+}
