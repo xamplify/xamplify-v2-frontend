@@ -52,3 +52,9 @@ html[data-theme-mode="neu-dark"][data-header-styles="transparent"] .app-sidebar,
 html[data-theme-mode="dark"][data-theme-variant="neu-dark"][data-header-styles="transparent"] .app-sidebar {
   background: none;
 }
+
+/* Make list group items background none only for neu-dark variant */
+html[data-theme-mode="neu-dark"] .list-group-item,
+html[data-theme-mode="dark"][data-theme-variant="neu-dark"] .list-group-item {
+  background: none;
+}

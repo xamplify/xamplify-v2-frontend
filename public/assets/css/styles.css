@@ -22574,6 +22574,12 @@ html[data-theme-mode=light][data-theme-variant=glassy-light][data-header-styles=
   background: none;
 }
 
+/* Make list group items background none only for glassy-light variant */
+html[data-theme-mode=glassy-light] .list-group-item,
+html[data-theme-mode=light][data-theme-variant=glassy-light] .list-group-item {
+  background: none;
+}
+
 /* Apply when the same html has both theme-mode and header-styles attributes */
 html[data-theme-mode=glassy-light][data-header-styles=transparent] .app-header,
 html[data-theme-mode=light][data-theme-variant=glassy-light][data-header-styles=transparent] .app-header {
@@ -22642,6 +22648,12 @@ html[data-theme-mode=dark][data-theme-variant=glassy-dark][data-header-styles=tr
   background: none;
 }
 
+/* Make list group items background none only for glassy-dark variant */
+html[data-theme-mode=glassy-dark] .list-group-item,
+html[data-theme-mode=dark][data-theme-variant=glassy-dark] .list-group-item {
+  background: none;
+}
+
 /* Neu Light – blue/white/grey palette (variables style) */
 html[data-theme-mode=neu-light],
 html[data-theme-mode=light][data-theme-variant=neu-light] {
@@ -22688,6 +22700,12 @@ html[data-theme-mode=light][data-theme-variant=neu-light][data-header-styles=tra
 /* Make sidebar transparent only when header style is explicitly 'transparent' (mirror header behavior) */
 html[data-theme-mode=neu-light][data-header-styles=transparent] .app-sidebar,
 html[data-theme-mode=light][data-theme-variant=neu-light][data-header-styles=transparent] .app-sidebar {
+  background: none;
+}
+
+/* Make list group items background none only for neu-light variant */
+html[data-theme-mode=neu-light] .list-group-item,
+html[data-theme-mode=light][data-theme-variant=neu-light] .list-group-item {
   background: none;
 }
 
@@ -22738,6 +22756,12 @@ html[data-theme-mode=dark][data-theme-variant=neu-dark][data-header-styles=trans
 /* Make sidebar transparent only when header style is explicitly 'transparent' (mirror header behavior) */
 html[data-theme-mode=neu-dark][data-header-styles=transparent] .app-sidebar,
 html[data-theme-mode=dark][data-theme-variant=neu-dark][data-header-styles=transparent] .app-sidebar {
+  background: none;
+}
+
+/* Make list group items background none only for neu-dark variant */
+html[data-theme-mode=neu-dark] .list-group-item,
+html[data-theme-mode=dark][data-theme-variant=neu-dark] .list-group-item {
   background: none;
 }
 

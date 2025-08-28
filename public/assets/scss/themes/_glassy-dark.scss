@@ -62,3 +62,9 @@ html[data-theme-mode="glassy-dark"][data-header-styles="transparent"] .app-sideb
 html[data-theme-mode="dark"][data-theme-variant="glassy-dark"][data-header-styles="transparent"] .app-sidebar {
   background: none;
 }
+
+/* Make list group items background none only for glassy-dark variant */
+html[data-theme-mode="glassy-dark"] .list-group-item,
+html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] .list-group-item {
+  background: none;
+}
