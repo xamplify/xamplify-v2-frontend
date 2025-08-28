@@ -1,13 +1,37 @@
 // Glassy Dark minimal placeholder
 // Keep this file small — update values later as needed.
 
-/* Body-level background for glassy-dark (temporary external image) */
+/* Glassy Dark – gradient background (with variables) */
+html[data-theme-mode="glassy-dark"],
+html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] {
+  --glassy-bg-attachment: fixed;
+  --glassy-bg-repeat: no-repeat;
+  --glassy-bg-size: cover;
+
+  --glassy-bg-image:
+    radial-gradient(circle at 92% 18%,
+      rgba(255,255,255,0.12) 0%,
+      rgba(255,255,255,0.12) 12%,
+      rgba(255,255,255,0.04) 12.5%,
+      transparent 13%),
+    linear-gradient(
+      130deg,
+      #1a1e2f 0%,
+      #3a2f8f 32%,
+      #6a3fe0 55%,
+      #a347e3 68%,
+      #ff6aa0 80%,
+      #ff7a63 92%,
+      #ff8756 100%
+    );
+}
+
 html[data-theme-mode="glassy-dark"] body,
 html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] body {
-  background-attachment: fixed;
-  background-image: url("https://xamplify.co/assets/images/glassmorphism-images/glassmorphism-dark.jpg") !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
+  background-attachment: var(--glassy-bg-attachment);
+  background-image: var(--glassy-bg-image) !important;
+  background-repeat: var(--glassy-bg-repeat) !important;
+  background-size: var(--glassy-bg-size) !important;
 }
 
 html[data-theme-mode="glassy-dark"],
@@ -23,7 +47,7 @@ html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] .card.custom-card
 html[data-theme-mode="dark"][data-theme-variant="glassy-dark"] .card {
   background-color: var(--surface-card-bg);
   background: rgb(0 0 0 / 18%) !important;
-  border: 1px solid #ffffff33;
+  border: 1px solid #ffffff0d;
   box-shadow: var(--glassy-dark-card-shadow);
 }
 

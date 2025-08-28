@@ -22501,16 +22501,7 @@ caption {
 
 /* CUSTOM */
 /* Theme variants (non-duplicating partials) */
-/* combined selector placed at top-level so Sass does not duplicate the html selector */
-html[data-theme-mode=glassy-light] body,
-html[data-theme-mode=light][data-theme-variant=glassy-light] body {
-  /* use theme variables so compiled CSS references tokens */
-  background-attachment: var(--glassy-bg-attachment);
-  background-image: var(--glassy-bg-image) !important;
-  background-repeat: var(--glassy-bg-repeat) !important;
-  background-size: var(--glassy-bg-size) !important;
-}
-
+/* Glassy Light – variables style (slightly darker for more contrast) */
 html[data-theme-mode=glassy-light],
 html[data-theme-mode=light][data-theme-variant=glassy-light] {
   /* Surface tokens (adjust names to match repository variables) */
@@ -22522,13 +22513,18 @@ html[data-theme-mode=light][data-theme-variant=glassy-light] {
   --glassy-card-bg: rgba(255, 255, 255, 0.3098039216);
   --glassy-card-border: rgba(255, 255, 255, 0.35);
   --glassy-card-shadow: 0 4px 14px var(--shadow-color);
-  /* Background image & layout tokens */
-  --glassy-bg-image: url("/assets/images/glassmorphism-images/glassmorphism.png");
+  /* Glassy Light – gradient background variables */
   --glassy-bg-attachment: fixed;
   --glassy-bg-repeat: no-repeat;
   --glassy-bg-size: cover;
-  --glassy-bg-position: center center;
-  --glassy-min-height: 100vh;
+  --glassy-bg-image:
+    /* reduce white glow, boost color overlays a bit */
+    radial-gradient(ellipse at 50% -10%, rgba(255,255,255,0.60) 0%, rgba(255,255,255,0) 60%),
+    radial-gradient(ellipse at 78% 52%, rgba(255,181,181,0.60) 0%, rgba(255,181,181,0) 45%),
+    radial-gradient(ellipse at 95% 58%, rgba(255,188,155,0.55) 0%, rgba(255,188,155,0) 40%),
+    radial-gradient(ellipse at 18% 86%, rgba(183,226,255,0.58) 0%, rgba(183,226,255,0) 50%),
+    /* base gradient made a touch deeper */
+    linear-gradient(135deg, #f0f4fa 0%, #ffe3d0 25%, #ffc7db 48%, #d3d7ff 72%, #cfe6ff 100%);
   /* Glass panel / filter tokens */
   --glassy-backdrop-blur: 8px;
   --glassy-backdrop-saturate: 110%;
@@ -22536,6 +22532,14 @@ html[data-theme-mode=light][data-theme-variant=glassy-light] {
   --glassy-border-width: 1px;
   /* Slightly lift primary contrast to keep readability on translucent surfaces */
   --default-text-color: rgba(17, 24, 39, 0.95);
+}
+
+html[data-theme-mode=glassy-light] body,
+html[data-theme-mode=light][data-theme-variant=glassy-light] body {
+  background-attachment: var(--glassy-bg-attachment);
+  background-image: var(--glassy-bg-image) !important;
+  background-repeat: var(--glassy-bg-repeat) !important;
+  background-size: var(--glassy-bg-size) !important;
 }
 
 /* Class-level rules: keep separate for clarity */
@@ -22577,13 +22581,36 @@ html[data-theme-mode=light][data-theme-variant=glassy-light][data-header-styles=
 }
 
 /* end _glassy-light.scss */
-/* Body-level background for glassy-dark (temporary external image) */
+/* Glassy Dark – gradient background (with variables) */
+html[data-theme-mode=glassy-dark],
+html[data-theme-mode=dark][data-theme-variant=glassy-dark] {
+  --glassy-bg-attachment: fixed;
+  --glassy-bg-repeat: no-repeat;
+  --glassy-bg-size: cover;
+  --glassy-bg-image:
+    radial-gradient(circle at 92% 18%,
+      rgba(255,255,255,0.12) 0%,
+      rgba(255,255,255,0.12) 12%,
+      rgba(255,255,255,0.04) 12.5%,
+      transparent 13%),
+    linear-gradient(
+      130deg,
+      #1a1e2f 0%,
+      #3a2f8f 32%,
+      #6a3fe0 55%,
+      #a347e3 68%,
+      #ff6aa0 80%,
+      #ff7a63 92%,
+      #ff8756 100%
+    );
+}
+
 html[data-theme-mode=glassy-dark] body,
 html[data-theme-mode=dark][data-theme-variant=glassy-dark] body {
-  background-attachment: fixed;
-  background-image: url("https://xamplify.co/assets/images/glassmorphism-images/glassmorphism-dark.jpg") !important;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
+  background-attachment: var(--glassy-bg-attachment);
+  background-image: var(--glassy-bg-image) !important;
+  background-repeat: var(--glassy-bg-repeat) !important;
+  background-size: var(--glassy-bg-size) !important;
 }
 
 html[data-theme-mode=glassy-dark],
@@ -22599,7 +22626,7 @@ html[data-theme-mode=dark][data-theme-variant=glassy-dark] .card.custom-card,
 html[data-theme-mode=dark][data-theme-variant=glassy-dark] .card {
   background-color: var(--surface-card-bg);
   background: rgba(0, 0, 0, 0.18) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.0509803922);
   box-shadow: var(--glassy-dark-card-shadow);
 }
 
@@ -22615,10 +22642,29 @@ html[data-theme-mode=dark][data-theme-variant=glassy-dark][data-header-styles=tr
   background: none;
 }
 
+/* Neu Light – blue/white/grey palette (variables style) */
 html[data-theme-mode=neu-light],
 html[data-theme-mode=light][data-theme-variant=neu-light] {
-  /* TODO: neumorphism light overrides (shadows, subtle elevations) */
-  --neu-placeholder: 1;
+  --neu-bg-attachment: fixed;
+  --neu-bg-repeat: no-repeat;
+  --neu-bg-size: cover;
+  --neu-bg-image:
+    /* soft white halo */
+    radial-gradient(ellipse at 50% -10%, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 55%),
+    /* cool blue glow (no orange/pink) */
+    radial-gradient(ellipse at 78% 45%, rgba(156,190,255,0.35) 0%, rgba(156,190,255,0) 46%),
+    /* neutral grey wash */
+    radial-gradient(ellipse at 18% 85%, rgba(200,210,220,0.40) 0%, rgba(200,210,220,0) 52%),
+    /* base sweep: blue → white → cool grey */
+    linear-gradient(145deg, #e6edf6 0%, #f2f6fb 48%, #ffffff 78%, #e9eef5 100%);
+}
+
+html[data-theme-mode=neu-light] body,
+html[data-theme-mode=light][data-theme-variant=neu-light] body {
+  background-attachment: var(--neu-bg-attachment);
+  background-image: var(--neu-bg-image) !important;
+  background-repeat: var(--neu-bg-repeat) !important;
+  background-size: var(--neu-bg-size) !important;
 }
 
 /* Neu-light card overrides (mirror glassy-light selector pattern) */
@@ -22633,10 +22679,66 @@ html[data-theme-mode=light][data-theme-variant=neu-light] .card {
   border-radius: 10px !important;
 }
 
+/* Make header transparent only when header style is explicitly 'transparent' */
+html[data-theme-mode=neu-light][data-header-styles=transparent] .app-header,
+html[data-theme-mode=light][data-theme-variant=neu-light][data-header-styles=transparent] .app-header {
+  background: none;
+}
+
+/* Make sidebar transparent only when header style is explicitly 'transparent' (mirror header behavior) */
+html[data-theme-mode=neu-light][data-header-styles=transparent] .app-sidebar,
+html[data-theme-mode=light][data-theme-variant=neu-light][data-header-styles=transparent] .app-sidebar {
+  background: none;
+}
+
+/* Neu Dark (Neumorphism Dark) — variable style */
 html[data-theme-mode=neu-dark],
 html[data-theme-mode=dark][data-theme-variant=neu-dark] {
-  /* TODO: neumorphism dark overrides (subtle embossed shadows, contrasts) */
-  --neu-placeholder: 1;
+  --neu-bg-attachment: fixed;
+  --neu-bg-repeat: no-repeat;
+  --neu-bg-size: cover;
+  /* dark blue/grey sweep with soft glows to match #13171d cards */
+  --neu-bg-image:
+    /* subtle cool glow mid-right */
+    radial-gradient(ellipse at 78% 70%, rgba(76,119,170,0.22) 0%, rgba(76,119,170,0) 48%),
+    /* faint white halo from top */
+    radial-gradient(ellipse at 50% -10%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 55%),
+    /* deep slate wash bottom-left */
+    radial-gradient(ellipse at 18% 88%, rgba(20,28,36,0.30) 0%, rgba(20,28,36,0) 52%),
+    /* base gradient */
+    linear-gradient(145deg, #0e131a 0%, #131922 52%, #0b0f14 100%);
+}
+
+html[data-theme-mode=neu-dark] body,
+html[data-theme-mode=dark][data-theme-variant=neu-dark] body {
+  background-attachment: var(--neu-bg-attachment);
+  background-image: var(--neu-bg-image) !important;
+  background-repeat: var(--neu-bg-repeat) !important;
+  background-size: var(--neu-bg-size) !important;
+}
+
+/* Neu-dark card overrides (mirror neu-light pattern with dark values) */
+html[data-theme-mode=neu-dark] .card.custom-card,
+html[data-theme-mode=neu-dark] .card,
+html[data-theme-mode=dark][data-theme-variant=neu-dark] .card.custom-card,
+html[data-theme-mode=dark][data-theme-variant=neu-dark] .card {
+  background-color: var(--surface-card-bg);
+  background: #1f2630 !important;
+  box-shadow: inset 5px 5px 10px #131922, inset -5px -5px 10px #2d3642 !important;
+  border: 0 solid #1a2029 !important;
+  border-radius: 10px !important;
+}
+
+/* Make header transparent only when header style is explicitly 'transparent' */
+html[data-theme-mode=neu-dark][data-header-styles=transparent] .app-header,
+html[data-theme-mode=dark][data-theme-variant=neu-dark][data-header-styles=transparent] .app-header {
+  background: none;
+}
+
+/* Make sidebar transparent only when header style is explicitly 'transparent' (mirror header behavior) */
+html[data-theme-mode=neu-dark][data-header-styles=transparent] .app-sidebar,
+html[data-theme-mode=dark][data-theme-variant=neu-dark][data-header-styles=transparent] .app-sidebar {
+  background: none;
 }
 
 .authentication {

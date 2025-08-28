@@ -2,8 +2,53 @@
 // Minimal placeholder for neu-dark variant. Keep deltas minimal; you will
 // add actual neumorphism tokens later. Scoped to avoid leaks.
 
+/* Neu Dark (Neumorphism Dark) — variable style */
 html[data-theme-mode="neu-dark"],
 html[data-theme-mode="dark"][data-theme-variant="neu-dark"] {
-  /* TODO: neumorphism dark overrides (subtle embossed shadows, contrasts) */
-  --neu-placeholder: 1;
+  --neu-bg-attachment: fixed;
+  --neu-bg-repeat: no-repeat;
+  --neu-bg-size: cover;
+
+  /* dark blue/grey sweep with soft glows to match #13171d cards */
+  --neu-bg-image:
+    /* subtle cool glow mid-right */
+    radial-gradient(ellipse at 78% 70%, rgba(76,119,170,0.22) 0%, rgba(76,119,170,0) 48%),
+    /* faint white halo from top */
+    radial-gradient(ellipse at 50% -10%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 55%),
+    /* deep slate wash bottom-left */
+    radial-gradient(ellipse at 18% 88%, rgba(20,28,36,0.30) 0%, rgba(20,28,36,0) 52%),
+    /* base gradient */
+    linear-gradient(145deg, #0e131a 0%, #131922 52%, #0b0f14 100%);
+}
+
+html[data-theme-mode="neu-dark"] body,
+html[data-theme-mode="dark"][data-theme-variant="neu-dark"] body {
+  background-attachment: var(--neu-bg-attachment);
+  background-image: var(--neu-bg-image) !important;
+  background-repeat: var(--neu-bg-repeat) !important;
+  background-size: var(--neu-bg-size) !important;
+}
+
+/* Neu-dark card overrides (mirror neu-light pattern with dark values) */
+html[data-theme-mode="neu-dark"] .card.custom-card,
+html[data-theme-mode="neu-dark"] .card,
+html[data-theme-mode="dark"][data-theme-variant="neu-dark"] .card.custom-card,
+html[data-theme-mode="dark"][data-theme-variant="neu-dark"] .card {
+  background-color: var(--surface-card-bg);
+  background: #1f2630 !important;
+  box-shadow: inset 5px 5px 10px #131922, inset -5px -5px 10px #2d3642 !important;
+  border: 0 solid #1a2029 !important;
+  border-radius: 10px !important;
+}
+
+/* Make header transparent only when header style is explicitly 'transparent' */
+html[data-theme-mode="neu-dark"][data-header-styles="transparent"] .app-header,
+html[data-theme-mode="dark"][data-theme-variant="neu-dark"][data-header-styles="transparent"] .app-header {
+  background: none;
+}
+
+/* Make sidebar transparent only when header style is explicitly 'transparent' (mirror header behavior) */
+html[data-theme-mode="neu-dark"][data-header-styles="transparent"] .app-sidebar,
+html[data-theme-mode="dark"][data-theme-variant="neu-dark"][data-header-styles="transparent"] .app-sidebar {
+  background: none;
 }

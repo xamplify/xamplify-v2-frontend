@@ -3,16 +3,7 @@
 // All rules are strictly scoped under html[data-theme-mode="glassy-light"] to
 // avoid leaking styles into other modes.
 
-/* combined selector placed at top-level so Sass does not duplicate the html selector */
-html[data-theme-mode="glassy-light"] body,
-html[data-theme-mode="light"][data-theme-variant="glassy-light"] body {
-  /* use theme variables so compiled CSS references tokens */
-  background-attachment: var(--glassy-bg-attachment);
-  background-image: var(--glassy-bg-image) !important;
-  background-repeat: var(--glassy-bg-repeat) !important;
-  background-size: var(--glassy-bg-size) !important;
-}
-
+/* Glassy Light – variables style (slightly darker for more contrast) */
 html[data-theme-mode="glassy-light"],
 html[data-theme-mode="light"][data-theme-variant="glassy-light"] {
   /* Surface tokens (adjust names to match repository variables) */
@@ -26,13 +17,19 @@ html[data-theme-mode="light"][data-theme-variant="glassy-light"] {
   --glassy-card-border: rgba(255, 255, 255, 0.35);
   --glassy-card-shadow: 0 4px 14px var(--shadow-color);
 
-  /* Background image & layout tokens */
-  --glassy-bg-image: url('/assets/images/glassmorphism-images/glassmorphism.png');
+  /* Glassy Light – gradient background variables */
   --glassy-bg-attachment: fixed;
   --glassy-bg-repeat: no-repeat;
   --glassy-bg-size: cover;
-  --glassy-bg-position: center center;
-  --glassy-min-height: 100vh;
+
+  --glassy-bg-image:
+    /* reduce white glow, boost color overlays a bit */
+    radial-gradient(ellipse at 50% -10%, rgba(255,255,255,0.60) 0%, rgba(255,255,255,0) 60%),
+    radial-gradient(ellipse at 78% 52%, rgba(255,181,181,0.60) 0%, rgba(255,181,181,0) 45%),
+    radial-gradient(ellipse at 95% 58%, rgba(255,188,155,0.55) 0%, rgba(255,188,155,0) 40%),
+    radial-gradient(ellipse at 18% 86%, rgba(183,226,255,0.58) 0%, rgba(183,226,255,0) 50%),
+    /* base gradient made a touch deeper */
+    linear-gradient(135deg, #f0f4fa 0%, #ffe3d0 25%, #ffc7db 48%, #d3d7ff 72%, #cfe6ff 100%);
 
   /* Glass panel / filter tokens */
   --glassy-backdrop-blur: 8px;
@@ -42,6 +39,14 @@ html[data-theme-mode="light"][data-theme-variant="glassy-light"] {
 
   /* Slightly lift primary contrast to keep readability on translucent surfaces */
   --default-text-color: rgba(17, 24, 39, 0.95);
+}
+
+html[data-theme-mode="glassy-light"] body,
+html[data-theme-mode="light"][data-theme-variant="glassy-light"] body {
+  background-attachment: var(--glassy-bg-attachment);
+  background-image: var(--glassy-bg-image) !important;
+  background-repeat: var(--glassy-bg-repeat) !important;
+  background-size: var(--glassy-bg-size) !important;
 }
 
 /* Class-level rules: keep separate for clarity */

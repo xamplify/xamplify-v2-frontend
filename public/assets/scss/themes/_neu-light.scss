@@ -2,10 +2,30 @@
 // Minimal placeholder for neu-light variant. Keep deltas minimal; you will
 // add actual neumorphism tokens later. Scoped to avoid leaks.
 
+/* Neu Light – blue/white/grey palette (variables style) */
 html[data-theme-mode="neu-light"],
 html[data-theme-mode="light"][data-theme-variant="neu-light"] {
-  /* TODO: neumorphism light overrides (shadows, subtle elevations) */
-  --neu-placeholder: 1;
+  --neu-bg-attachment: fixed;
+  --neu-bg-repeat: no-repeat;
+  --neu-bg-size: cover;
+
+  --neu-bg-image:
+    /* soft white halo */
+    radial-gradient(ellipse at 50% -10%, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0) 55%),
+    /* cool blue glow (no orange/pink) */
+    radial-gradient(ellipse at 78% 45%, rgba(156,190,255,0.35) 0%, rgba(156,190,255,0) 46%),
+    /* neutral grey wash */
+    radial-gradient(ellipse at 18% 85%, rgba(200,210,220,0.40) 0%, rgba(200,210,220,0) 52%),
+    /* base sweep: blue → white → cool grey */
+    linear-gradient(145deg, #e6edf6 0%, #f2f6fb 48%, #ffffff 78%, #e9eef5 100%);
+}
+
+html[data-theme-mode="neu-light"] body,
+html[data-theme-mode="light"][data-theme-variant="neu-light"] body {
+  background-attachment: var(--neu-bg-attachment);
+  background-image: var(--neu-bg-image) !important;
+  background-repeat: var(--neu-bg-repeat) !important;
+  background-size: var(--neu-bg-size) !important;
 }
 
 /* Neu-light card overrides (mirror glassy-light selector pattern) */
@@ -18,4 +38,16 @@ html[data-theme-mode="light"][data-theme-variant="neu-light"] .card {
   box-shadow: inset 5px 5px 10px #d6dadf, inset -5px -5px 10px #fff !important;
   border: 0 solid #ececec !important;
   border-radius: 10px !important;
+}
+
+/* Make header transparent only when header style is explicitly 'transparent' */
+html[data-theme-mode="neu-light"][data-header-styles="transparent"] .app-header,
+html[data-theme-mode="light"][data-theme-variant="neu-light"][data-header-styles="transparent"] .app-header {
+  background: none;
+}
+
+/* Make sidebar transparent only when header style is explicitly 'transparent' (mirror header behavior) */
+html[data-theme-mode="neu-light"][data-header-styles="transparent"] .app-sidebar,
+html[data-theme-mode="light"][data-theme-variant="neu-light"][data-header-styles="transparent"] .app-sidebar {
+  background: none;
 }
