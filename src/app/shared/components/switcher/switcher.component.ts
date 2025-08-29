@@ -48,6 +48,20 @@ export class SwitcherComponent {
       html?.style.removeProperty('--form-control-bg');
       html?.style.removeProperty('--input-border');
     }
+    // Child themes: Glassy / Neu variants should default to transparent header
+    // but inherit the menu color from their parent theme (light/dark).
+    if (theme === 'glassy-light' || theme === 'glassy-dark' || theme === 'neu-light' || theme === 'neu-dark') {
+      // determine parent menu color (light or dark) from the child theme suffix
+      const parentMenuColor = theme.endsWith('light') ? 'light' : 'dark';
+      this.appStateService.updateState({ theme, themeBackground: '', headerColor: 'transparent', menuColor: parentMenuColor });
+      const html = document.querySelector('html');
+      html?.style.removeProperty('--body-bg-rgb');
+      html?.style.removeProperty('--body-bg-rgb2');
+      html?.style.removeProperty('--light-rgb');
+      html?.style.removeProperty('--gray-3');
+      html?.style.removeProperty('--form-control-bg');
+      html?.style.removeProperty('--input-border');
+    }
   }
 
   updatemenuType(navigationStyles: string) {
